@@ -469,9 +469,6 @@ export default function Home() {
                 <h3 className="font-mono text-sm uppercase tracking-widest opacity-80 mb-2">Investment</h3>
                 <div className="font-serif text-6xl mb-2">$800–$1,200</div>
                 <div className="font-mono text-xs tracking-widest uppercase opacity-70 mb-4">Sliding Scale</div>
-                <p className="text-primary-foreground/80 mb-6">
-                  For the full six-week process.
-                </p>
                 <div className="font-mono text-xs tracking-widest uppercase">Next cohort filling now.</div>
               </div>
             </FadeIn>

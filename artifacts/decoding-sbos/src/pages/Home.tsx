@@ -447,12 +447,12 @@ export default function Home() {
                 <ul className="space-y-4">
                   {[
                     "6 weekly live group sessions",
+                    "2 bonus Q&A calls",
                     "Two hours per session",
-                    "Brief teaching to open each session",
+                    "Teaching to open each session",
                     "Extended dialogue and process work",
                     "Emphasis on embodied experience",
-                    "Sessions are not recorded",
-                    "Ten people per cohort",
+                    "Sessions will be recorded",
                     "Tuesdays, 6:00–8:00 PM MST"
                   ].map((item, i) => (
                     <li key={i} className="flex gap-4 items-center">

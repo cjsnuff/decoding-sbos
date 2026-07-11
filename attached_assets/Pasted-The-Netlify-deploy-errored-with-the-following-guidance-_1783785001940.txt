@@ -1,0 +1,117 @@
+The Netlify deploy errored, with the following guidance provided:
+
+Diagnosis — relevant log lines
+- The build runs the package script: [line 69](#L69).
+- Vite fails to load the config: [line 70](#L70).
+- The immediate error is: [line 72](#L72) "Error: PORT environment variable is required but was not provided."
+- The error originates from your project vite config file: artifacts/decoding-sbos/vite.config.ts (referenced at [line 73](#L73)).
+
+Error type and cause
+- Type: runtime/configuration error during config load.
+- Cause: vite.config.ts requires a PORT environment variable and throws when it is not defined. Netlify's build environment does not provide PORT by default, so the config throws during build time and stops the build.
+
+Solution (two options — prefer option A)
+A — Recommended: make vite.config.ts tolerant of missing PORT during build
+- Adjust vite.config.ts so it only requires PORT when running the dev server (vite serve) or provide a sensible default. This prevents the build from failing on Netlify where a dev server port is irrelevant.
+
+Example change (replace the strict throw with a safe default or only require for serve):
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite';
+
+export default defineConfig(({ command }) => {
+  if (command === 'serve') {
+    // for local dev: prefer environment PORT but fall back to 5173
+    const port = process.env.PORT ? Number(process.env.PORT) : 5173;
+    return {
+      server: { port },
+      // other dev-only config...
+    };
+  }
+
+  // build: do not require PORT
+  return {
+    // build-specific config here
+  };
+});
+```
+- Commit this change and push; Netlify builds will then complete without needing a PORT env var.
+
+B — Alternate: set PORT in Netlify build environment (if you prefer keeping the strict requirement)
+- In the Netlify UI: Site > Site settings > Build & deploy > Environment > Environment variables > Add variable
+  - Key: PORT
+  - Value: 5173 (or whichever port your config expects)
+- Or add it in netlify.toml under [build.environment]:
+```toml
+[build.environment]
+PORT = "5173"
+```
+- Verify the variable is added and re-trigger a deploy.
+
+Notes and relevant file
+- The error came from artifacts/decoding-sbos/vite.config.ts — see the file in your repo: https://github.com/cjsnuff/decoding-sbos/blob/main/artifacts/decoding-sbos/vite.config.ts
+
+If you want, I can propose the exact patch to your vite.config.ts file if you paste its current contents or grant me read access to the file.
+
+The relevant error logs are:
+
+Line 0: build-image version: 969defd95f3977f8de9cb1f48802a7e6f3d8c0b3 (noble-new-builds)
+Line 1: buildbot version: 969defd95f3977f8de9cb1f48802a7e6f3d8c0b3
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/cjsnuff/decoding-sbos
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Installing dependencies
+Line 9: mise ~/.config/mise/config.toml tools: python@3.14.3
+Line 10: mise ~/.config/mise/config.toml tools: ruby@3.4.8
+Line 11: mise ~/.config/mise/config.toml tools: go@1.26.2
+Line 12: v24.18.0 is already installed.
+Line 13: Now using node v24.18.0 (npm v11.16.0)
+Line 60: ​
+Line 61: ❯ Context
+Line 62:   production
+Line 63: ​
+Line 64: Build command from Netlify app                                
+Line 65: ────────────────────────────────────────────────────────────────
+Line 66: ​
+Line 67: $ pnpm --filter @workspace/decoding-sbos run build
+Line 68: > @workspace/decoding-sbos@0.0.0 build /opt/build/repo/artifacts/decoding-sbos
+Line 69: > vite build --config vite.config.ts
+Line 70: failed to load config from /opt/build/repo/artifacts/decoding-sbos/vite.config.ts
+Line 71: error during build:
+Line 72: Error: PORT environment variable is required but was not provided.
+Line 73:     at file:///opt/build/repo/artifacts/decoding-sbos/node_modules/.vite-temp/vite.config.ts.timestamp-1783784903654-72f37ed291f
+Line 74:     at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+Line 75:     at async node:internal/modules/esm/loader:643:26
+Line 76:     at async loadConfigFromBundledFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_light
+Line 77:     at async bundleAndLoadConfigFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightni
+Line 78:     at async loadConfigFromFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss
+Line 79:     at async resolveConfig (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32
+Line 80:     at async createBuilder (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32
+Line 81:     at async CAC.<anonymous> (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.
+Line 82: /opt/build/repo/artifacts/decoding-sbos:
+Line 83:  ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/decoding-sbos@0.0.0 build: `vite build --config vite.con
+Line 84: Exit status 1
+Line 85: ​
+Line 86: "build.command" failed                                        
+Line 87: ────────────────────────────────────────────────────────────────
+Line 88: ​
+Line 89:   Error message
+Line 90:   Command failed with exit code 1: pnpm --filter @workspace/decoding-sbos run build
+Line 91: ​
+Line 92:   Error location
+Line 93:   In Build command from Netlify app:
+Line 94:   pnpm --filter @workspace/decoding-sbos run build
+Line 95: ​
+Line 96:   Resolved config
+Line 97:   build:
+Line 98:     command: pnpm --filter @workspace/decoding-sbos run build
+Line 99:     commandOrigin: ui
+Line 100:     publish: /opt/build/repo/artifacts/decoding-sbos/dist
+Line 101:     publishOrigin: ui
+Line 102: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 103: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 104: Failing build: Failed to build site
+Line 105: Finished processing build request in 13.465s

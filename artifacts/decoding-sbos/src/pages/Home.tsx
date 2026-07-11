@@ -185,7 +185,7 @@ export default function Home() {
           <div className="md:col-span-6 md:col-start-7 space-y-12">
             {[
               "You are afraid that you are unreconcilably broken. That there is nothing and no one who can fix you.",
-              "You drank ayahuasca and did three ceremonies and you still come home afraid and terrified that your partner is going to bring up the conversation that always ends the same. Them sad and dejected, you shut down, numb and collapsed.",
+              "You have done the ceremonies. You have done the therapy. You still come home afraid and terrified that your partner is going to bring up the conversation that always ends the same. Them sad and dejected, you shut down, numb and collapsed.",
               "You drink, smoke, and binge content because it keeps you from your inner world.",
               "You are losing the person you love most in real time and feel helpless to stop it."
             ].map((text, i) => (
@@ -329,7 +329,7 @@ export default function Home() {
               },
               {
                 week: "Five",
-                title: "Creation",
+                title: "Creativity",
                 desc: "Your story is a gift. Your story will literally save someone's life someday if you are brave enough to tell it. This week, we dive into your story, allow it to lead our creative process, and share from our hearts."
               },
               {
@@ -368,7 +368,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <blockquote className="font-serif text-3xl md:text-5xl leading-tight mb-8">
-              "Adult consciousness is capable of contending with responsibility."
+              "Adult consciousness is capable of contending with responsibility and tending to the grief it holds."
             </blockquote>
             <cite className="font-mono text-sm tracking-widest uppercase opacity-80 not-italic text-primary">
               — Christian Snuffer
@@ -409,9 +409,22 @@ export default function Home() {
                 </p>
                 <div className="pt-8 border-t border-border mt-8">
                   <p className="text-sm font-mono uppercase tracking-widest text-primary mb-4">Credentials & Experience</p>
-                  <p className="text-base">
-                    What I bring to the room: over 4,000 hours working with adolescents in horticultural therapy; 3,000 hours in expedition-based wilderness therapy with young men, shifts that demanded impeccable self-care and high relational attunement. I completed 4,000 clinical hours before licensure and have added 4,000 more in private practice since. 250 clients over the past three years. 1,000+ hours developing the specific model that runs this program. And a seven-year marriage shaped by the exact fire I'm asking you to walk into.
-                  </p>
+                  <ul className="space-y-3 text-base">
+                    {[
+                      "4,000+ hours working with adolescents in horticultural therapy",
+                      "3,000 hours in expedition-based wilderness therapy with young men — shifts demanding impeccable self-care and high relational attunement",
+                      "4,000 clinical hours completed before licensure",
+                      "4,000+ additional hours in private practice since",
+                      "250 clients over the past three years",
+                      "1,000+ hours developing the specific model that runs this program",
+                      "A seven-year marriage shaped by the exact fire I'm asking you to walk into"
+                    ].map((item, i) => (
+                      <li key={i} className="flex gap-3 items-start">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </FadeIn>
@@ -454,7 +467,8 @@ export default function Home() {
             <FadeIn delay={0.2}>
               <div className="bg-primary text-primary-foreground p-8">
                 <h3 className="font-mono text-sm uppercase tracking-widest opacity-80 mb-2">Investment</h3>
-                <div className="font-serif text-6xl mb-4">$800</div>
+                <div className="font-serif text-6xl mb-2">$800–$1,200</div>
+                <div className="font-mono text-xs tracking-widest uppercase opacity-70 mb-4">Sliding Scale</div>
                 <p className="text-primary-foreground/80 mb-6">
                   For the full six-week process. Enrollment includes a brief screening conversation to ensure the group is a good fit for you.
                 </p>
@@ -540,7 +554,7 @@ export default function Home() {
               You don't know what you feel, and so you don't know what you can do about it.
             </p>
             <p className="text-lg md:text-xl text-muted-foreground mb-16 max-w-2xl mx-auto">
-              Of all the people you've found on the internet, I believe I'm the most capable of guiding you toward where you want to go. Not because I know every single answer, but because you're seeing this now, which means there's a resonance. I want to serve you.
+              I am uniquely capable of guiding you toward where you want to go. Not because I have every answer but because I have lived what I am teaching you in this course. Shame ruled my life and kept me numb and disconnected for over 15 years. I know how it shows up in people's bodies and I know what to do about it. If you found this page there is already a resonance. I want to serve you.
             </p>
             
             <a 

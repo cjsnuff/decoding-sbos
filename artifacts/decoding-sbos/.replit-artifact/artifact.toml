@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Decoding the sbOS"
+version = "1.0.0"
+id = "artifacts/decoding-sbos"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19415
+
+[services.development]
+run = "pnpm --filter @workspace/decoding-sbos run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/decoding-sbos", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/decoding-sbos/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19415"
+BASE_PATH = "/"

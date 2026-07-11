@@ -470,7 +470,7 @@ export default function Home() {
                 <div className="font-serif text-6xl mb-2">$800–$1,200</div>
                 <div className="font-mono text-xs tracking-widest uppercase opacity-70 mb-4">Sliding Scale</div>
                 <p className="text-primary-foreground/80 mb-6">
-                  For the full six-week process. Enrollment includes a brief screening conversation to ensure the group is a good fit for you.
+                  For the full six-week process.
                 </p>
                 <div className="font-mono text-xs tracking-widest uppercase">Next cohort filling now.</div>
               </div>

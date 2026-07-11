@@ -29,6 +29,50 @@ const LineReveal = ({ children, delay = 0, className = "" }: { children: React.R
   </div>
 );
 
+// Inline testimonial — peppered between sections
+function PullTestimonial({ quote, author, variant = "default" }: { quote: string; author: string; variant?: "default" | "amber" | "minimal" }) {
+  if (variant === "amber") {
+    return (
+      <FadeIn>
+        <section className="py-20 px-6 md:px-12 bg-primary">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="font-serif text-2xl md:text-3xl text-primary-foreground leading-relaxed italic mb-6">"{quote}"</p>
+            <p className="font-mono text-xs tracking-widest uppercase text-primary-foreground/70">— {author}</p>
+          </div>
+        </section>
+      </FadeIn>
+    );
+  }
+
+  if (variant === "minimal") {
+    return (
+      <FadeIn>
+        <section className="py-16 px-6 md:px-12 border-y border-border/40">
+          <div className="max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-1 font-mono text-xs tracking-widest text-primary mt-1">"</div>
+            <div className="md:col-span-11">
+              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground italic mb-4">{quote}</p>
+              <p className="font-mono text-xs tracking-widest uppercase text-primary">— {author}</p>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
+    );
+  }
+
+  return (
+    <FadeIn>
+      <section className="py-20 px-6 md:px-12 bg-card/40">
+        <div className="max-w-3xl mx-auto">
+          <div className="w-8 h-px bg-primary mb-8"></div>
+          <p className="font-serif text-2xl md:text-3xl leading-snug italic mb-8">{quote}</p>
+          <p className="font-mono text-xs tracking-widest uppercase text-primary">— {author}</p>
+        </div>
+      </section>
+    </FadeIn>
+  );
+}
+
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
@@ -90,6 +134,13 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* TESTIMONIAL 1 — right after hero, short & punchy for immediate credibility */}
+      <PullTestimonial
+        quote="Christian is one of the most skilled somatic practitioners I've ever worked with. His group container on shame changed my life."
+        author="Ellen H. — Cohort 1"
+        variant="amber"
+      />
+
       {/* OPENING PHILOSOPHY */}
       <section className="py-32 px-6 md:px-12 bg-card/30">
         <div className="max-w-4xl mx-auto">
@@ -108,6 +159,13 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
+
+      {/* TESTIMONIAL 2 — transformation, mirrors philosophy */}
+      <PullTestimonial
+        quote="The group really helped me transform some long held fear and shame and gave me more access to life. I left the group feeling more confident, capable and alive."
+        author="Cohort 1 Participant"
+        variant="minimal"
+      />
 
       {/* PAIN POINTS */}
       <section className="py-32 px-6 md:px-12 relative overflow-hidden">
@@ -141,6 +199,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIAL 3 — mirrors pain points, curiosity replacing shame */}
+      <PullTestimonial
+        quote="Christian, thank you for helping me better understand how my body communicates. My response to feeling shame and fear is now curiosity. Life is much better being able to sit with those feelings and explore them, instead of always trying to escape them."
+        author="Todd B. — Cohort 1"
+        variant="default"
+      />
 
       {/* QUOTE */}
       <section className="py-40 px-6 md:px-12 text-center bg-primary text-primary-foreground">
@@ -181,6 +246,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TESTIMONIAL 4 — validates the outcomes, "whole new way" */}
+      <PullTestimonial
+        quote="I see myself and my trauma response in a whole new way. It is no longer something I feel will always be with me, for reasons I don't understand. Instead, I feel so empowered to notice it and engage with it in a positive way, using my agency to confront my deep-seated fears."
+        author="Cohort 1 Participant"
+        variant="minimal"
+      />
+
       {/* WHO THIS IS FOR */}
       <section className="py-32 px-6 md:px-12 bg-card/30 border-y border-border">
         <div className="max-w-4xl mx-auto">
@@ -216,6 +288,13 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
+
+      {/* TESTIMONIAL 5 — validates the container and the group setting */}
+      <PullTestimonial
+        quote="The group setting was powerful to see how patterns of shame affects different people. It was helpful to have such a supportive setting to be able to share and be vulnerable. I have more compassion for myself and feel less anxious and more at peace because of this course."
+        author="Dillon Seely — Cohort 1"
+        variant="default"
+      />
 
       {/* THE ARC OF SIX WEEKS */}
       <section className="py-32 px-6 md:px-12">
@@ -277,6 +356,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TESTIMONIAL 6 — comprehensive, after curriculum shows full picture */}
+      <PullTestimonial
+        quote="Since completing this group process, I have experienced significant shifts in my understanding of how shame lives in me and I consistently see glimmers of progress, hope and love."
+        author="K. Whitney — Cohort 1"
+        variant="amber"
+      />
+
       {/* QUOTE 2 */}
       <section className="py-32 px-6 md:px-12 text-center bg-card">
         <div className="max-w-4xl mx-auto">
@@ -319,7 +405,7 @@ export default function Home() {
                   The bigger story is the truth that Feeling is Freedom. A numb, disconnected people are a people available to be manipulated, exploited, and used. Feeling, and an exodus from shame-based identification, creates responsible adults capable of changing the future.
                 </p>
                 <p>
-                  I have spent my entire adult life learning how to help people feel and how to feel myself. I hid things from my wife I was convinced would end our marriage. I found my way through. That's why I built this.
+                  I have spent my entire adult life learning how to help people feel and how to feel myself. I found my way through. That's why I built this.
                 </p>
                 <div className="pt-8 border-t border-border mt-8">
                   <p className="text-sm font-mono uppercase tracking-widest text-primary mb-4">Credentials & Experience</p>
@@ -415,56 +501,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* TESTIMONIALS 7 & 8 — longer stories, final social proof before CTA */}
       <section className="py-32 px-6 md:px-12 bg-background">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">Stories</div>
-            <h2 className="font-serif text-4xl md:text-6xl mb-16">Words from Cohort 1</h2>
+            <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-16">More from Cohort 1</div>
           </FadeIn>
 
-          <div className="columns-1 md:columns-2 gap-8 space-y-8">
-            {[
-              {
-                text: "The group really helped me transform some long held fear and shame and gave me more access to life. After the 6 weeks, I noticed myself trying and initiating things that I would have been too afraid or ashamed to attempt in the past. I left the group feeling more confident, capable and alive.",
-                author: "Cohort 1 Participant"
-              },
-              {
-                text: "This course has helped me immensely. Christian's teachings and instructions were very insightful and helped me better understand shame and how it affects my body. The homework assignments allowed me to process my feelings and see how shame is no longer serving me. I was able to confront fears in my life that I would not have otherwise. The group setting was powerful to see how patterns of shame affects different people. It was helpful to have such a supportive setting to be able to share and be vulnerable. I still have work to do after the course but am excited knowing that I am not 'broken' or 'bad.' I have more compassion for myself and feel less anxious and more at peace because of this course.",
-                author: "Dillon Seely"
-              },
-              {
-                text: "Christian is one of the most skilled somatic practitioners I've ever worked with. His group container on shame changed my life.",
-                author: "Ellen H."
-              },
-              {
-                text: "The Honest Body was a great addition to my personal development repertoire. It encompassed many of the things I want to improve upon so that I can better show up in relationship and feel connected. It has highlighted the ways shame shows up in my thoughts, feelings and behaviors and has taught me how to utilize this understanding for growth. Christian breaks down the creation of shame based identities and their utility with a lot of compassion, allowing for a more grounded and open exploration of these parts. The emphasis on connecting these identifications to felt sensations within the body was eye opening and challenging. Christian does a great job of providing guidance along the way and the group setting provides diverse experiences to connect and relate to. Since completing this group process, I have experienced significant shifts in my understanding of how shame lives in me and I consistently see glimmers of progress, hope and love.",
-                author: "K. Whitney"
-              },
-              {
-                text: "I see myself and my trauma response in a whole new way. It is no longer something I feel will always be with me, for reasons I don't understand. Instead, after this program, I feel so empowered to notice it and engage with it in a positive way, using my agency to confront my deep-seated fears of abandonment and rejection that shame has covered.",
-                author: "Cohort 1 Participant"
-              },
-              {
-                text: "Christian, thank you for helping me better understand how my body communicates. My response to feeling shame and fear is now curiosity. Life is much better being able to sit with those feelings and explore them, instead of always trying to escape them.",
-                author: "Todd B."
-              },
-              {
-                text: "The Honest Body literally changed my perspective on life after operating under a shame-based operating system for more than five decades. Being diagnosed with CPTSD eleven years ago, at age 50, I have been doing everything in my power to heal. In this course, I learned many important things, including how what happens inside of me limits my ability to give and receive love. Shame is a prime example and I'm learning to identify when I feel shame daily. I also learned that the more shame loosens up in me the more love I can feel and take in. My relationships with my husband, my adult children, in particular, and close friends, are rapidly changing. Christian is an absolute gem and holds a safe and loving container where we all felt held as we shared. Don't miss your opportunity to experience The Honest Body. We can actually learn to heal our deepest wounds — and I am, without a doubt, a living example.",
-                author: "Tracey C.K."
-              },
-              {
-                text: "I have been following Christian on IG for over a year now and have been nothing short of inspired by the content he puts out. It has sparked my curiosity about trauma and healing like nothing else I have encountered on the subject. His approach to the idea that feeling is freedom felt fresh and new, and, frankly, revolutionary. And his ability to articulate truth in clear, concise ways, grounded in his lived experience, set him apart in a very loud and crowded space. So when he opened a container for group therapy, I was intrigued but scared out of my mind by the implications of opening up to a group of would-be total strangers. Several times I considered backing out. But within minutes of the first meeting, Christian put all my fears to rest with his remarkable ability to show up with his heart wide open and create a safe, upbeat space for all of us to learn the powerful concepts he teaches while giving us practical tools to apply them in our lives. As I have applied what I learned during my 6 weeks with Christian, I have seen miraculous changes in how I show up in my relationships, feeling freed from trauma responses I had carried in my body for nearly 50 years, feelings I had never understood, much less known how to handle. Christian's 6-week program has been a game changer for me in tremendous ways, and I would recommend it to anyone who wants to understand shame and trauma and learn how to transform them in powerful, practical ways. You will feel liberated!",
-                author: "Amberli Peterson"
-              }
-            ].map((testimonial, i) => (
-              <FadeIn key={i} delay={0.1} className="break-inside-avoid">
-                <div className="p-8 border border-border bg-card/30 rounded-sm">
-                  <p className="text-muted-foreground leading-relaxed italic mb-6">"{testimonial.text}"</p>
-                  <p className="font-mono text-sm tracking-widest uppercase text-primary">— {testimonial.author}</p>
-                </div>
-              </FadeIn>
-            ))}
+          <div className="grid md:grid-cols-2 gap-12">
+            <FadeIn delay={0.1}>
+              <div className="p-8 border border-border bg-card/30 h-full flex flex-col">
+                <p className="text-muted-foreground leading-relaxed italic mb-8 flex-1">
+                  "The Honest Body literally changed my perspective on life after operating under a shame-based operating system for more than five decades. Being diagnosed with CPTSD eleven years ago, at age 50, I have been doing everything in my power to heal. In this course, I learned many important things, including how what happens inside of me limits my ability to give and receive love. Shame is a prime example and I'm learning to identify when I feel shame daily. I also learned that the more shame loosens up in me the more love I can feel and take in. My relationships with my husband, my adult children, in particular, and close friends, are rapidly changing. Christian is an absolute gem and holds a safe and loving container where we all felt held as we shared. We can actually learn to heal our deepest wounds — and I am, without a doubt, a living example."
+                </p>
+                <p className="font-mono text-sm tracking-widest uppercase text-primary">— Tracey C.K., Cohort 1</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="p-8 border border-border bg-card/30 h-full flex flex-col">
+                <p className="text-muted-foreground leading-relaxed italic mb-8 flex-1">
+                  "His approach to the idea that feeling is freedom felt fresh and new, and, frankly, revolutionary. Within minutes of the first meeting, Christian put all my fears to rest with his remarkable ability to show up with his heart wide open and create a safe, upbeat space for all of us. As I have applied what I learned during my 6 weeks with Christian, I have seen miraculous changes in how I show up in my relationships, feeling freed from trauma responses I had carried in my body for nearly 50 years. Christian's 6-week program has been a game changer for me in tremendous ways, and I would recommend it to anyone who wants to understand shame and trauma and learn how to transform them in powerful, practical ways. You will feel liberated!"
+                </p>
+                <p className="font-mono text-sm tracking-widest uppercase text-primary">— Amberli Peterson, Cohort 1</p>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>

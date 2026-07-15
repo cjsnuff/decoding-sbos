@@ -3,6 +3,7 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 import somatic1 from "@assets/generated_images/somatic-1.jpg";
 import somatic2 from "@assets/generated_images/somatic-2.jpg";
 import somatic3 from "@assets/generated_images/somatic-3.jpg";
+import christianHeadshot from "@assets/XianHeadshot2_1784149736543.JPG";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -398,7 +399,7 @@ export default function Home() {
           <div className="md:col-span-5 relative">
             <FadeIn>
               <div className="aspect-[4/5] overflow-hidden bg-card border border-border p-2">
-                <img src={somatic3} alt="Christian Snuffer" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-1000" />
+                <img src={christianHeadshot} alt="Christian Snuffer" className="w-full h-full object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-1000" />
               </div>
             </FadeIn>
           </div>
@@ -519,7 +520,7 @@ export default function Home() {
             <FadeIn delay={0.2}>
               <div className="bg-primary text-primary-foreground p-8">
                 <h3 className="font-mono text-sm uppercase tracking-widest opacity-80 mb-2">Investment</h3>
-                <div className="font-serif text-6xl mb-2">$800–$1,200</div>
+                <div className="font-serif text-6xl mb-2">$800–$1,300</div>
                 <div className="font-mono text-xs tracking-widest uppercase opacity-70 mb-4">Sliding Scale</div>
                 <div className="font-mono text-xs tracking-widest uppercase">Next cohort filling now.</div>
               </div>
@@ -623,7 +624,7 @@ export default function Home() {
       <footer className="py-12 px-6 md:px-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground font-mono uppercase tracking-widest">
         <div>© {new Date().getFullYear()} Christian Snuffer</div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-primary transition-colors">Instagram</a>
+          <a href="https://www.instagram.com/_attunement/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
           <a href="#" className="hover:text-primary transition-colors">Contact</a>
         </div>
       </footer>

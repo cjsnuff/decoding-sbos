@@ -137,7 +137,7 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.4} className="flex flex-col sm:flex-row sm:items-center gap-6 text-sm font-mono text-muted-foreground uppercase tracking-widest">
+          <FadeIn delay={0.4} className="flex flex-col sm:flex-row sm:items-center gap-6 text-sm font-mono text-muted-foreground uppercase tracking-widest mb-10">
             <div className="flex gap-4">
               <span>6 Weeks</span>
               <span className="text-border">/</span>
@@ -147,6 +147,18 @@ export default function Home() {
             </div>
             <div className="hidden sm:block w-12 h-px bg-border"></div>
             <span className="text-primary">Begins August 18</span>
+          </FadeIn>
+
+          <FadeIn delay={0.5}>
+            <a
+              href="https://luma.com/54r4p034"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
+            >
+              Register Now
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </FadeIn>
         </div>
 
@@ -269,6 +281,22 @@ export default function Home() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* MID-PAGE CTA */}
+      <section className="py-20 px-6 md:px-12 bg-card/30 border-y border-border">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8">
+          <p className="font-serif text-2xl md:text-3xl">Ready to start?</p>
+          <a
+            href="https://luma.com/54r4p034"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
+          >
+            Register Now
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </section>
 

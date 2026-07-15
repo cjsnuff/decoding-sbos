@@ -564,12 +564,19 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="bg-primary text-primary-foreground p-8">
+              <a
+                href="https://luma.com/54r4p034"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-primary text-primary-foreground p-8 hover:bg-primary/90 transition-colors duration-300 group"
+              >
                 <h3 className="font-mono text-sm uppercase tracking-widest opacity-80 mb-2">Investment</h3>
                 <div className="font-serif text-6xl mb-2">$800–$1,300</div>
                 <div className="font-mono text-xs tracking-widest uppercase opacity-70 mb-4">Sliding Scale</div>
-                <div className="font-mono text-xs tracking-widest uppercase">Next cohort filling now.</div>
-              </div>
+                <div className="font-mono text-xs tracking-widest uppercase flex items-center gap-2">
+                  Register Now <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </a>
             </FadeIn>
           </div>
 

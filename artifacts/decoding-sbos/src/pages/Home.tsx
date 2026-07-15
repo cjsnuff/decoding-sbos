@@ -78,10 +78,25 @@ export default function Home() {
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       <div className="noise-overlay"></div>
 
+      {/* WEBINAR BANNER */}
+      <a
+        href="https://luma.com/w93r1w7i"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full bg-primary text-primary-foreground text-center py-3 px-6 hover:bg-primary/90 transition-colors z-50 relative"
+      >
+        <span className="font-mono text-xs tracking-widest uppercase">
+          Free Live Webinar — August 8 @ 9:00 AM MDT
+          <span className="mx-3 opacity-50">·</span>
+          Register now
+          <ArrowRight className="inline-block w-3 h-3 ml-2 -mt-0.5" />
+        </span>
+      </a>
+
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-40 p-6 flex justify-between items-center mix-blend-difference text-foreground/80">
         <div className="font-mono text-xs tracking-widest uppercase">The sbOS</div>
-        <a href="#register" className="font-mono text-xs tracking-widest uppercase hover:text-primary transition-colors">
+        <a href="https://luma.com/54r4p034" target="_blank" rel="noopener noreferrer" className="font-mono text-xs tracking-widest uppercase hover:text-primary transition-colors">
           Enroll Now
         </a>
       </nav>
@@ -120,7 +135,7 @@ export default function Home() {
               <span>Live</span>
             </div>
             <div className="hidden sm:block w-12 h-px bg-border"></div>
-            <span className="text-primary">Begins [Date TBD]</span>
+            <span className="text-primary">Begins August 18</span>
           </FadeIn>
         </div>
 
@@ -432,6 +447,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SCHEDULE */}
+      <section className="py-32 px-6 md:px-12 bg-background border-y border-border">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn>
+            <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">Schedule</div>
+            <h2 className="font-serif text-5xl md:text-6xl mb-16">The Dates.</h2>
+          </FadeIn>
+
+          <div className="space-y-0">
+            {[
+              { label: "Group 1 — Shame",        date: "Monday, August 18",    time: "6:00 PM MDT" },
+              { label: "Group 2 — Fear",          date: "Monday, August 25",    time: "6:00 PM MDT" },
+              { label: "Group 3 — Agency",        date: "Monday, September 1",  time: "6:00 PM MDT" },
+              { label: "Bonus Q&A Call",          date: "Thursday, September 4",time: "10:00 AM MDT", bonus: true },
+              { label: "Group 4 — Responsibility",date: "Monday, September 8",  time: "6:00 PM MDT" },
+              { label: "Group 5 — Creativity",    date: "Monday, September 15", time: "6:00 PM MDT" },
+              { label: "Group 6 — Integration",   date: "Monday, September 22", time: "6:00 PM MDT" },
+              { label: "Bonus Q&A Call",          date: "Thursday, September 25",time: "10:00 AM MDT", bonus: true },
+            ].map((row, i) => (
+              <FadeIn key={i} delay={i * 0.05}>
+                <div className={`flex flex-col sm:flex-row sm:items-center justify-between py-5 border-b border-border gap-2 ${row.bonus ? "opacity-70" : ""}`}>
+                  <div className="flex items-center gap-4">
+                    <div className={`font-mono text-xs tracking-widest uppercase ${row.bonus ? "text-muted-foreground" : "text-primary"}`}>
+                      {row.bonus ? "Bonus" : `0${i < 3 ? i + 1 : i - 0}`}
+                    </div>
+                    <span className={`text-lg ${row.bonus ? "text-muted-foreground" : "text-foreground"}`}>{row.label}</span>
+                  </div>
+                  <div className="font-mono text-sm text-muted-foreground tracking-wide pl-10 sm:pl-0">
+                    {row.date} <span className="text-primary ml-2">{row.time}</span>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* STRUCTURE & INVESTMENT & INCLUDED */}
       <section className="py-32 px-6 md:px-12 border-y border-border bg-card/20">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20">
@@ -555,7 +607,9 @@ export default function Home() {
             </p>
             
             <a 
-              href="#register" 
+              href="https://luma.com/54r4p034"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-10 py-5 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
             >
               So be brave and let's do it

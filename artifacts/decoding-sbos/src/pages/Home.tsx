@@ -507,11 +507,11 @@ export default function Home() {
               { label: "Group 1 — Shame",        date: "Monday, August 18",    time: "6:00 PM MDT" },
               { label: "Group 2 — Fear",          date: "Monday, August 25",    time: "6:00 PM MDT" },
               { label: "Group 3 — Agency",        date: "Monday, September 1",  time: "6:00 PM MDT" },
-              { label: "Bonus Q&A Call",          date: "Thursday, September 4",time: "10:00 AM MDT", bonus: true },
+              { label: "Bonus Q&A Call",          date: "Friday, September 4",  time: "10:00 AM MDT", bonus: true },
               { label: "Group 4 — Responsibility",date: "Monday, September 8",  time: "6:00 PM MDT" },
               { label: "Group 5 — Creativity",    date: "Monday, September 15", time: "6:00 PM MDT" },
               { label: "Group 6 — Integration",   date: "Monday, September 22", time: "6:00 PM MDT" },
-              { label: "Bonus Q&A Call",          date: "Thursday, September 25",time: "10:00 AM MDT", bonus: true },
+              { label: "Bonus Q&A Call",          date: "Friday, September 25",  time: "10:00 AM MDT", bonus: true },
             ].map((row, i) => (
               <FadeIn key={i} delay={i * 0.05}>
                 <div className={`flex flex-col sm:flex-row sm:items-center justify-between py-5 border-b border-border gap-2 ${row.bonus ? "opacity-70" : ""}`}>

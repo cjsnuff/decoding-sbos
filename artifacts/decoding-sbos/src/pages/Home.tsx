@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ArrowDown, X, Copy, Check } from "lucide-react";
 import somatic1 from "@assets/generated_images/somatic-1.jpg";
 import somatic2 from "@assets/generated_images/somatic-2.jpg";
 import somatic3 from "@assets/generated_images/somatic-3.jpg";
@@ -75,6 +76,15 @@ function PullTestimonial({ quote, author, variant = "default" }: { quote: string
 }
 
 export default function Home() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("christian@attunementpsych.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       <div className="noise-overlay"></div>
@@ -625,9 +635,56 @@ export default function Home() {
         <div>© {new Date().getFullYear()} Christian Snuffer</div>
         <div className="flex gap-6">
           <a href="https://www.instagram.com/_attunement/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
-          <a href="#" className="hover:text-primary transition-colors">Contact</a>
+          <button onClick={() => setContactOpen(true)} className="hover:text-primary transition-colors cursor-pointer">Contact</button>
         </div>
       </footer>
+
+      {/* CONTACT MODAL */}
+      <AnimatePresence>
+        {contactOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50"
+              onClick={() => setContactOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-6 pointer-events-none"
+            >
+              <div className="bg-card border border-border p-10 max-w-md w-full pointer-events-auto relative">
+                <button
+                  onClick={() => setContactOpen(false)}
+                  className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <p className="font-mono text-xs tracking-widest uppercase text-primary mb-4">Get in Touch</p>
+                <p className="font-serif text-2xl mb-8">christian@attunementpsych.com</p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="mailto:christian@attunementpsych.com"
+                    className="flex-1 text-center bg-primary text-primary-foreground px-6 py-3 font-mono text-xs uppercase tracking-widest hover:bg-primary/90 transition-colors"
+                  >
+                    Open Email App
+                  </a>
+                  <button
+                    onClick={copyEmail}
+                    className="flex-1 flex items-center justify-center gap-2 border border-border px-6 py-3 font-mono text-xs uppercase tracking-widest hover:border-primary hover:text-primary transition-colors"
+                  >
+                    {copied ? <><Check className="w-3 h-3" /> Copied</> : <><Copy className="w-3 h-3" /> Copy Address</>}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -358,6 +358,13 @@ export default function Home() {
         variant="default"
       />
 
+      {/* TESTIMONIAL — Heather Seely, body awareness, bridges into curriculum */}
+      <PullTestimonial
+        quote="Christian is an excellent teacher and held a safe and supportive group space. You can begin to recognize how it feels physically, in your body, to experience shame — and see the influence it has on your thoughts, your choices, and the relationship you have with yourself and others. Learning about your shame is the doorway to creating new thought patterns, facing your fears and allowing for greater expansion in your life."
+        author="Heather Seely — Cohort 1"
+        variant="minimal"
+      />
+
       {/* THE ARC OF SIX WEEKS */}
       <section className="py-32 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
@@ -423,6 +430,13 @@ export default function Home() {
         quote="Since completing this group process, I have experienced significant shifts in my understanding of how shame lives in me and I consistently see glimmers of progress, hope and love."
         author="K. Whitney — Cohort 1"
         variant="amber"
+      />
+
+      {/* TESTIMONIAL — Rob M., clinician perspective, after curriculum */}
+      <PullTestimonial
+        quote="The concept of the Shame-Based Operating System has already become part of both my clinical work and my own personal reflection. Christian teaches from lived experience, and that changes the feel of the room. The authenticity is obvious. Nothing felt performative or overly polished. It felt real, and that made the material easier to trust and integrate. This course is an excellent fit for anyone wanting to better understand shame in themselves or others — not because it promises easy answers, but because it creates the conditions for real change."
+        author="Rob M. — Cohort 1"
+        variant="default"
       />
 
       {/* QUOTE 2 */}
@@ -493,6 +507,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIAL — Lye Yuan Jun, capacity + naming feelings, after About */}
+      <PullTestimonial
+        quote="The course has helped me develop a greater capacity to stay in the moment when difficult emotions arise. I am more confident in precisely naming my feeling, identifying its roots in shame and fear, and choosing my response. I feel equipped with the clarity, personal power and specific actionable ideas to move away from patterned behaviours and mindsets, and to deepen my relationship with myself and others."
+        author="Lye Yuan Jun — Cohort 1"
+        variant="minimal"
+      />
 
       {/* SCHEDULE */}
       <section className="py-32 px-6 md:px-12 bg-background border-y border-border">
@@ -646,6 +667,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIAL — Olivia Saville, final punch before CTA */}
+      <PullTestimonial
+        quote="Decoding the sbOS challenged me in ways I didn't anticipate and led to a profound shift in my life. I now have an increased emotional and somatic awareness of when shame and child consciousness are running the show. I feel lighter and braver on the other side of it. Taking this course is money well spent — if you commit to getting something out of it, the results are priceless."
+        author="Olivia Saville — Cohort 1"
+        variant="amber"
+      />
 
       {/* FINAL CTA */}
       <section className="py-40 px-6 md:px-12 relative overflow-hidden border-t border-border">

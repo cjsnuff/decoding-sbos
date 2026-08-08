@@ -525,13 +525,13 @@ export default function Home() {
 
           <div className="space-y-0">
             {[
-              { label: "Group 1 — Shame",        date: "Monday, August 18",    time: "6:00 PM MDT" },
-              { label: "Group 2 — Fear",          date: "Monday, August 25",    time: "6:00 PM MDT" },
-              { label: "Group 3 — Agency",        date: "Monday, September 1",  time: "6:00 PM MDT" },
+              { label: "Group 1 — Shame",        date: "Tuesday, August 18",    time: "6:00 PM MDT" },
+              { label: "Group 2 — Fear",          date: "Tuesday, August 25",    time: "6:00 PM MDT" },
+              { label: "Group 3 — Agency",        date: "Tuesday, September 1",  time: "6:00 PM MDT" },
               { label: "Bonus Q&A Call",          date: "Friday, September 4",  time: "10:00 AM MDT", bonus: true },
-              { label: "Group 4 — Responsibility",date: "Monday, September 8",  time: "6:00 PM MDT" },
-              { label: "Group 5 — Creativity",    date: "Monday, September 15", time: "6:00 PM MDT" },
-              { label: "Group 6 — Integration",   date: "Monday, September 22", time: "6:00 PM MDT" },
+              { label: "Group 4 — Responsibility",date: "Tuesday, September 8",  time: "6:00 PM MDT" },
+              { label: "Group 5 — Creativity",    date: "Tuesday, September 15", time: "6:00 PM MDT" },
+              { label: "Group 6 — Integration",   date: "Tuesday, September 22", time: "6:00 PM MDT" },
               { label: "Bonus Q&A Call",          date: "Friday, September 25",  time: "3:00 PM MDT",  bonus: true },
             ].map((row, i) => (
               <FadeIn key={i} delay={i * 0.05}>

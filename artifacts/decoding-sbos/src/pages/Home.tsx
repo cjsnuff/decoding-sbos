@@ -89,31 +89,8 @@ export default function Home() {
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       <div className="noise-overlay"></div>
 
-      {/* WEBINAR BANNER — fixed, always visible */}
-      <a
-        href="https://luma.com/w93r1w7i"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed top-0 left-0 right-0 z-50 block w-full bg-primary text-primary-foreground text-center py-3 px-6 hover:bg-primary/90 transition-colors"
-      >
-        {/* Short label on mobile, full label on sm+ */}
-        <span className="sm:hidden font-mono text-xs tracking-widest uppercase">
-          Free Webinar · Aug 8
-          <ArrowRight className="inline-block w-3 h-3 ml-2 -mt-0.5" />
-        </span>
-        <span className="hidden sm:inline font-mono text-xs tracking-widest uppercase">
-          Free Live Webinar — August 8 @ 9:00 AM MDT
-          <span className="mx-3 opacity-50">·</span>
-          Register now
-          <ArrowRight className="inline-block w-3 h-3 ml-2 -mt-0.5" />
-        </span>
-      </a>
-
-      {/* Spacer so page content clears the fixed banner */}
-      <div className="h-11" />
-
-      {/* NAV — sits below the banner */}
-      <nav className="fixed top-11 left-0 right-0 z-40 p-6 flex justify-between items-center mix-blend-difference text-foreground/80">
+      {/* NAV */}
+      <nav className="fixed top-0 left-0 right-0 z-40 p-6 flex justify-between items-center mix-blend-difference text-foreground/80">
         <div className="font-mono text-xs tracking-widest uppercase">The sbOS</div>
         <a href="https://luma.com/54r4p034" target="_blank" rel="noopener noreferrer" className="font-mono text-xs tracking-widest uppercase hover:text-primary transition-colors">
           Enroll Now

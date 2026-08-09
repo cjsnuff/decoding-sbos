@@ -180,6 +180,40 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* WEBINAR VIDEO EMBED */}
+      <section className="px-6 md:px-12 py-20 bg-card/30">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn>
+            <div className="font-mono text-xs tracking-widest uppercase text-primary mb-4 border-l border-primary pl-4 py-1">Free Webinar Recording</div>
+            <h2 className="font-serif text-3xl md:text-4xl mb-10">Watch before you decide.</h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="relative w-full aspect-video bg-background border border-border overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/G_Q-61olXIo?rel=0&modestbranding=1&color=white"
+                title="Decoding the sbOS — Free Webinar"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <div className="mt-8 flex justify-center">
+              <a
+                href="https://luma.com/54r4p034"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
+              >
+                Register Now
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* TESTIMONIAL 1 — right after hero, short & punchy for immediate credibility */}
       <PullTestimonial
         quote="Christian is one of the most skilled somatic practitioners I've ever worked with. His group container on shame changed my life."

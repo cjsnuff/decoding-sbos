@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowDown, X, Copy, Check } from "lucide-react";
+import { ArrowRight, ArrowDown, X, Copy, Check, LoaderCircle } from "lucide-react";
+import { useSubmitInterest } from "@workspace/api-client-react";
 import somatic1 from "@assets/generated_images/somatic-1.jpg";
 import somatic2 from "@assets/generated_images/somatic-2.jpg";
 import somatic3 from "@assets/generated_images/somatic-3.jpg";
@@ -77,7 +78,35 @@ function PullTestimonial({ quote, author, variant = "default" }: { quote: string
 
 export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
+  const [interestOpen, setInterestOpen] = useState(false);
+  const [interestSubmitted, setInterestSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const interestMutation = useSubmitInterest();
+
+  const openInterestForm = () => {
+    interestMutation.reset();
+    setInterestSubmitted(false);
+    setInterestOpen(true);
+  };
+
+  const submitInterestForm = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+
+    interestMutation.mutate(
+      {
+        data: {
+          name: String(form.get("name") ?? ""),
+          email: String(form.get("email") ?? ""),
+          message: String(form.get("message") ?? ""),
+          website: String(form.get("website") ?? ""),
+        },
+      },
+      {
+        onSuccess: () => setInterestSubmitted(true),
+      },
+    );
+  };
 
   const copyEmail = () => {
     navigator.clipboard.writeText("christian@attunementpsych.com");
@@ -92,9 +121,9 @@ export default function Home() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-40 p-6 flex justify-between items-center mix-blend-difference text-foreground/80">
         <div className="font-mono text-xs tracking-widest uppercase">The sbOS</div>
-        <a href="https://luma.com/54r4p034" target="_blank" rel="noopener noreferrer" className="font-mono text-xs tracking-widest uppercase hover:text-primary transition-colors">
-          Enroll Now
-        </a>
+        <button onClick={openInterestForm} className="font-mono text-xs tracking-widest uppercase hover:text-primary transition-colors cursor-pointer">
+          Submit Your Interest
+        </button>
       </nav>
 
       {/* HERO */}
@@ -131,19 +160,17 @@ export default function Home() {
               <span>Live</span>
             </div>
             <div className="hidden sm:block w-12 h-px bg-border"></div>
-            <span className="text-primary">Begins August 18</span>
+            <span className="text-primary">January 2027 · Dates TBD</span>
           </FadeIn>
 
           <FadeIn delay={0.5}>
-            <a
-              href="https://luma.com/54r4p034"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={openInterestForm}
               className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
             >
-              Register Now
+              Submit Your Interest
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </FadeIn>
         </div>
 
@@ -177,15 +204,13 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="mt-8 flex justify-center">
-              <a
-                href="https://luma.com/54r4p034"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={openInterestForm}
                 className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
               >
-                Register Now
+                Submit Your Interest
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </button>
             </div>
           </FadeIn>
         </div>
@@ -307,15 +332,13 @@ export default function Home() {
       <section className="py-20 px-6 md:px-12 bg-card/30 border-y border-border">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8">
           <p className="font-serif text-2xl md:text-3xl">Ready to start?</p>
-          <a
-            href="https://luma.com/54r4p034"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openInterestForm}
             className="shrink-0 inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
           >
-            Register Now
+            Submit Your Interest
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -531,35 +554,9 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">Schedule</div>
-            <h2 className="font-serif text-5xl md:text-6xl mb-16">The Dates.</h2>
+            <h2 className="font-serif text-5xl md:text-6xl mb-8">January 2027.</h2>
+            <p className="font-mono text-sm tracking-widest uppercase text-primary">Dates TBD</p>
           </FadeIn>
-
-          <div className="space-y-0">
-            {[
-              { label: "Group 1 — Shame",        date: "Tuesday, August 18",    time: "6:00 PM MDT" },
-              { label: "Group 2 — Fear",          date: "Tuesday, August 25",    time: "6:00 PM MDT" },
-              { label: "Group 3 — Agency",        date: "Tuesday, September 1",  time: "6:00 PM MDT" },
-              { label: "Bonus Q&A Call",          date: "Friday, September 4",  time: "10:00 AM MDT", bonus: true },
-              { label: "Group 4 — Responsibility",date: "Tuesday, September 8",  time: "6:00 PM MDT" },
-              { label: "Group 5 — Creativity",    date: "Tuesday, September 15", time: "6:00 PM MDT" },
-              { label: "Group 6 — Integration",   date: "Tuesday, September 22", time: "6:00 PM MDT" },
-              { label: "Bonus Q&A Call",          date: "Friday, September 25",  time: "3:00 PM MDT",  bonus: true },
-            ].map((row, i) => (
-              <FadeIn key={i} delay={i * 0.05}>
-                <div className={`flex flex-col sm:flex-row sm:items-center justify-between py-5 border-b border-border gap-2 ${row.bonus ? "opacity-70" : ""}`}>
-                  <div className="flex items-center gap-4">
-                    <div className={`font-mono text-xs tracking-widest uppercase ${row.bonus ? "text-muted-foreground" : "text-primary"}`}>
-                      {row.bonus ? "Bonus" : `0${i < 3 ? i + 1 : i - 0}`}
-                    </div>
-                    <span className={`text-lg ${row.bonus ? "text-muted-foreground" : "text-foreground"}`}>{row.label}</span>
-                  </div>
-                  <div className="font-mono text-sm text-muted-foreground tracking-wide pl-10 sm:pl-0">
-                    {row.date} <span className="text-primary ml-2">{row.time}</span>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -584,7 +581,7 @@ export default function Home() {
                     "Extended dialogue and process work",
                     "Emphasis on embodied experience",
                     "Sessions will be recorded",
-                    "Tuesdays, 6:00–8:00 PM MST"
+                    "January 2027 — exact dates and times TBD"
                   ].map((item, i) => (
                     <li key={i} className="flex gap-4 items-center">
                       <div className="w-1 h-1 bg-border shrink-0"></div>
@@ -596,19 +593,17 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <a
-                href="https://luma.com/54r4p034"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={openInterestForm}
                 className="block bg-primary text-primary-foreground p-8 hover:bg-primary/90 transition-colors duration-300 group"
               >
                 <h3 className="font-mono text-sm uppercase tracking-widest opacity-80 mb-2">Investment</h3>
-                <div className="font-serif text-6xl mb-2">$800–$1,300</div>
-                <div className="font-mono text-xs tracking-widest uppercase opacity-70 mb-4">Sliding Scale</div>
+                <div className="font-serif text-6xl mb-2">$1,200</div>
+                <div className="font-mono text-xs tracking-widest uppercase opacity-70 mb-4">Payment plans are available</div>
                 <div className="font-mono text-xs tracking-widest uppercase flex items-center gap-2">
-                  Register Now <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+                  Submit Your Interest <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
-              </a>
+              </button>
             </FadeIn>
           </div>
 
@@ -699,15 +694,13 @@ export default function Home() {
               I am uniquely capable of guiding you toward where you want to go. Not because I have every answer but because I have lived what I am teaching you in this course. Shame ruled my life and kept me numb and disconnected for over 15 years. I know how it shows up in people's bodies and I know what to do about it. If you found this page there is already a resonance. I want to serve you.
             </p>
             
-            <a 
-              href="https://luma.com/54r4p034"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={openInterestForm}
               className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-10 py-5 font-mono uppercase tracking-widest text-sm hover:bg-primary/90 transition-all duration-300 hover:gap-6"
             >
-              So be brave and let's do it
+              Submit Your Interest
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </FadeIn>
         </div>
       </section>
@@ -720,6 +713,144 @@ export default function Home() {
           <button onClick={() => setContactOpen(true)} className="hover:text-primary transition-colors cursor-pointer">Contact</button>
         </div>
       </footer>
+
+      {/* INTEREST FORM MODAL */}
+      <AnimatePresence>
+        {interestOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50"
+              onClick={() => setInterestOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 pointer-events-none overflow-y-auto"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="interest-title"
+            >
+              <div className="bg-card border border-border p-7 md:p-10 max-w-xl w-full pointer-events-auto relative my-auto">
+                <button
+                  onClick={() => setInterestOpen(false)}
+                  className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label="Close interest form"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+
+                {interestSubmitted ? (
+                  <div className="py-6 text-center">
+                    <div className="w-12 h-12 border border-primary text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Check className="w-5 h-5" />
+                    </div>
+                    <p className="font-mono text-xs tracking-widest uppercase text-primary mb-4">Interest Received</p>
+                    <h2 id="interest-title" className="font-serif text-4xl mb-5">Thank you.</h2>
+                    <p className="text-muted-foreground leading-relaxed mb-8">
+                      Check your inbox for confirmation. Christian will be in touch as the January 2027 dates are finalized.
+                    </p>
+                    <button
+                      onClick={() => setInterestOpen(false)}
+                      className="bg-primary text-primary-foreground px-8 py-3 font-mono text-xs uppercase tracking-widest hover:bg-primary/90 transition-colors"
+                    >
+                      Close
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <p className="font-mono text-xs tracking-widest uppercase text-primary mb-4">January 2027 · Dates TBD</p>
+                    <h2 id="interest-title" className="font-serif text-4xl md:text-5xl mb-4">Submit your interest.</h2>
+                    <p className="text-muted-foreground leading-relaxed mb-8">
+                      Share your details and Christian will contact you when the next cohort dates are confirmed.
+                    </p>
+
+                    <form onSubmit={submitInterestForm} className="space-y-5">
+                      <div>
+                        <label htmlFor="interest-name" className="block font-mono text-xs uppercase tracking-widest mb-2">
+                          Name
+                        </label>
+                        <input
+                          id="interest-name"
+                          name="name"
+                          type="text"
+                          autoComplete="name"
+                          required
+                          maxLength={120}
+                          className="w-full bg-background border border-border px-4 py-3 text-foreground outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="interest-email" className="block font-mono text-xs uppercase tracking-widest mb-2">
+                          Email
+                        </label>
+                        <input
+                          id="interest-email"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          required
+                          maxLength={254}
+                          className="w-full bg-background border border-border px-4 py-3 text-foreground outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="interest-message" className="block font-mono text-xs uppercase tracking-widest mb-2">
+                          Anything you'd like Christian to know? <span className="text-muted-foreground">(Optional)</span>
+                        </label>
+                        <textarea
+                          id="interest-message"
+                          name="message"
+                          rows={4}
+                          maxLength={2000}
+                          className="w-full bg-background border border-border px-4 py-3 text-foreground outline-none focus:border-primary transition-colors resize-y"
+                        />
+                      </div>
+                      <div className="absolute -left-[10000px]" aria-hidden="true">
+                        <label htmlFor="interest-website">Website</label>
+                        <input id="interest-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                      </div>
+
+                      {interestMutation.isError && (
+                        <p role="alert" className="text-sm text-red-300 border-l border-red-400 pl-3">
+                          {interestMutation.error instanceof Error
+                            ? interestMutation.error.message
+                            : "We couldn't submit your interest. Please try again."}
+                        </p>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={interestMutation.isPending}
+                        className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-wait"
+                      >
+                        {interestMutation.isPending ? (
+                          <>
+                            <LoaderCircle className="w-4 h-4 animate-spin" />
+                            Submitting
+                          </>
+                        ) : (
+                          <>
+                            Submit Your Interest
+                            <ArrowRight className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
+                      <p className="text-xs text-muted-foreground text-center">
+                        You will receive one confirmation email. No newsletter signup.
+                      </p>
+                    </form>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* CONTACT MODAL */}
       <AnimatePresence>

@@ -8,7 +8,7 @@ import {
 const router: IRouter = Router();
 const connectors = new ReplitConnectors();
 const notificationEmail = "christian@attunementpsych.com";
-const sender = "Decoding the sbOS <christian@attunementpsych.com>";
+const sender = "Decoding the sbOS <hello@updates.attunementpsych.com>";
 
 const submissionWindows = new Map<string, number[]>();
 const submissionLimit = 5;

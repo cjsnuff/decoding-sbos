@@ -1,1 +1,2 @@
 - [Waitlist provider](waitlist-provider.md) — user replaced custom Resend interest submissions with their hosted Frank waitlist form.
+- [Testimonial editing](testimonial-editing.md) — user permits shortening long reviews and wants varied course dimensions with small real-person portraits.

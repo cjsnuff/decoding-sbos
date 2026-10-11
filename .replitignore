@@ -3,3 +3,9 @@
 
 # No need to store the pnpm store twice.
 .local
+
+# Original testimonial uploads; optimized portraits are included with the site.
+attached_assets/Rachel_B_*.jpg
+attached_assets/Matthew_S_*.png
+attached_assets/Andy_L_*.jpg
+attached_assets/Caleb_R_*.jpg

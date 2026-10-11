@@ -4,6 +4,7 @@ import { ArrowRight, ArrowDown, X, Copy, Check } from "lucide-react";
 import somatic1 from "@assets/generated_images/somatic-1.jpg";
 import somatic2 from "@assets/generated_images/somatic-2.jpg";
 import somatic3 from "@assets/generated_images/somatic-3.jpg";
+import VoicesSection from "@/components/testimonials/VoicesSection";
 import christianHeadshot from "@assets/XianHeadshot2_1784149736543.JPG";
 
 const waitlistFormUrl = "https://itsjustfrank.com/f/76a5ff3c-443d-4d5f-8f89-2e40eb3f43ae";
@@ -453,6 +454,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* PARTICIPANT VOICES — seven newer reviewers */}
+      <VoicesSection />
 
       {/* TESTIMONIAL 6 — comprehensive, after curriculum shows full picture */}
       <PullTestimonial

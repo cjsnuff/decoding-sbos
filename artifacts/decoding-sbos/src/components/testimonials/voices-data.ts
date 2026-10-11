@@ -54,6 +54,7 @@ export const voices: Voice[] = [
     id: "sonnie-k",
     name: "Sonnie K.",
     theme: "Life outside of class",
+    photo: photo("sonnie-k.webp"),
     quote:
       "The clear session-to-session flow and practical homework gave these concepts real life outside of class, the insights translated into daily practices that I’m truly excited to keep using.",
   },
@@ -61,6 +62,7 @@ export const voices: Voice[] = [
     id: "caroline-a",
     name: "Caroline A.",
     theme: "Body and mind",
+    photo: photo("caroline-a.webp"),
     quote:
       "I am able to observe my shame based beliefs and how they operate within my body and my mind. I have a more compassionate, understanding relationship with myself.",
   },

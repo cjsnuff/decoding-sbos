@@ -10,8 +10,6 @@ servers:
 tags:
   - name: health
     description: Health operations
-  - name: interests
-    description: Cohort interest submissions
 paths:
   /healthz:
     get:
@@ -26,31 +24,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
-  /interests:
-    post:
-      operationId: submitInterest
-      tags: [interests]
-      summary: Submit interest in the next cohort
-      description: Notifies the facilitator and sends a confirmation email to the submitter.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/InterestInput"
-      responses:
-        "200":
-          description: Interest submitted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/InterestConfirmation"
-        "400":
-          description: Invalid form submission
-        "429":
-          description: Too many submissions
-        "502":
-          description: Email provider error
 components:
   schemas:
     HealthStatus:
@@ -60,35 +33,4 @@ components:
           type: string
       required:
         - status
-    InterestInput:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-          maxLength: 120
-        email:
-          type: string
-          pattern: '^[^\s@]+@[^\s@]+\.[^\s@]+$'
-          maxLength: 254
-        message:
-          type: string
-          maxLength: 2000
-        website:
-          type: string
-          maxLength: 200
-          description: Honeypot field; must remain empty.
-      required:
-        - name
-        - email
-    InterestConfirmation:
-      type: object
-      properties:
-        success:
-          type: boolean
-        message:
-          type: string
-      required:
-        - success
-        - message
 

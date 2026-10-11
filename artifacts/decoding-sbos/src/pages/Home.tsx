@@ -1,11 +1,12 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowDown, X, Copy, Check, LoaderCircle } from "lucide-react";
-import { useSubmitInterest } from "@workspace/api-client-react";
+import { ArrowRight, ArrowDown, X, Copy, Check } from "lucide-react";
 import somatic1 from "@assets/generated_images/somatic-1.jpg";
 import somatic2 from "@assets/generated_images/somatic-2.jpg";
 import somatic3 from "@assets/generated_images/somatic-3.jpg";
 import christianHeadshot from "@assets/XianHeadshot2_1784149736543.JPG";
+
+const waitlistFormUrl = "https://itsjustfrank.com/f/76a5ff3c-443d-4d5f-8f89-2e40eb3f43ae";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -79,34 +80,28 @@ function PullTestimonial({ quote, author, variant = "default" }: { quote: string
 export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
   const [interestOpen, setInterestOpen] = useState(false);
-  const [interestSubmitted, setInterestSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
-  const interestMutation = useSubmitInterest();
 
   const openInterestForm = () => {
-    interestMutation.reset();
-    setInterestSubmitted(false);
     setInterestOpen(true);
   };
 
-  const submitInterestForm = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-
-    interestMutation.mutate(
-      {
-        data: {
-          name: String(form.get("name") ?? ""),
-          email: String(form.get("email") ?? ""),
-          message: String(form.get("message") ?? ""),
-          website: String(form.get("website") ?? ""),
-        },
-      },
-      {
-        onSuccess: () => setInterestSubmitted(true),
-      },
-    );
-  };
+  useEffect(() => {
+    if (!interestOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement;
+    document.body.style.overflow = "hidden";
+    document.getElementById("close-interest-form")?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setInterestOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+      if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    };
+  }, [interestOpen]);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("christian@attunementpsych.com");
@@ -735,8 +730,9 @@ export default function Home() {
               aria-modal="true"
               aria-labelledby="interest-title"
             >
-              <div className="bg-card border border-border p-7 md:p-10 max-w-xl w-full pointer-events-auto relative my-auto">
+              <div className="bg-card border border-border p-4 md:p-6 max-w-2xl w-full pointer-events-auto relative my-auto">
                 <button
+                  id="close-interest-form"
                   onClick={() => setInterestOpen(false)}
                   className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
                   aria-label="Close interest form"
@@ -744,108 +740,20 @@ export default function Home() {
                   <X className="w-4 h-4" />
                 </button>
 
-                {interestSubmitted ? (
-                  <div className="py-6 text-center">
-                    <div className="w-12 h-12 border border-primary text-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Check className="w-5 h-5" />
-                    </div>
-                    <p className="font-mono text-xs tracking-widest uppercase text-primary mb-4">Interest Received</p>
-                    <h2 id="interest-title" className="font-serif text-4xl mb-5">Thank you.</h2>
-                    <p className="text-muted-foreground leading-relaxed mb-8">
-                      Check your inbox for confirmation. Christian will be in touch as the January 2027 dates are finalized.
-                    </p>
-                    <button
-                      onClick={() => setInterestOpen(false)}
-                      className="bg-primary text-primary-foreground px-8 py-3 font-mono text-xs uppercase tracking-widest hover:bg-primary/90 transition-colors"
-                    >
-                      Close
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <p className="font-mono text-xs tracking-widest uppercase text-primary mb-4">January 2027 · Dates TBD</p>
-                    <h2 id="interest-title" className="font-serif text-4xl md:text-5xl mb-4">Submit your interest.</h2>
-                    <p className="text-muted-foreground leading-relaxed mb-8">
-                      Share your details and Christian will contact you when the next cohort dates are confirmed.
-                    </p>
-
-                    <form onSubmit={submitInterestForm} className="space-y-5">
-                      <div>
-                        <label htmlFor="interest-name" className="block font-mono text-xs uppercase tracking-widest mb-2">
-                          Name
-                        </label>
-                        <input
-                          id="interest-name"
-                          name="name"
-                          type="text"
-                          autoComplete="name"
-                          required
-                          maxLength={120}
-                          className="w-full bg-background border border-border px-4 py-3 text-foreground outline-none focus:border-primary transition-colors"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="interest-email" className="block font-mono text-xs uppercase tracking-widest mb-2">
-                          Email
-                        </label>
-                        <input
-                          id="interest-email"
-                          name="email"
-                          type="email"
-                          autoComplete="email"
-                          required
-                          maxLength={254}
-                          className="w-full bg-background border border-border px-4 py-3 text-foreground outline-none focus:border-primary transition-colors"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="interest-message" className="block font-mono text-xs uppercase tracking-widest mb-2">
-                          Anything you'd like Christian to know? <span className="text-muted-foreground">(Optional)</span>
-                        </label>
-                        <textarea
-                          id="interest-message"
-                          name="message"
-                          rows={4}
-                          maxLength={2000}
-                          className="w-full bg-background border border-border px-4 py-3 text-foreground outline-none focus:border-primary transition-colors resize-y"
-                        />
-                      </div>
-                      <div className="absolute -left-[10000px]" aria-hidden="true">
-                        <label htmlFor="interest-website">Website</label>
-                        <input id="interest-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
-                      </div>
-
-                      {interestMutation.isError && (
-                        <p role="alert" className="text-sm text-red-300 border-l border-red-400 pl-3">
-                          {interestMutation.error instanceof Error
-                            ? interestMutation.error.message
-                            : "We couldn't submit your interest. Please try again."}
-                        </p>
-                      )}
-
-                      <button
-                        type="submit"
-                        disabled={interestMutation.isPending}
-                        className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-wait"
-                      >
-                        {interestMutation.isPending ? (
-                          <>
-                            <LoaderCircle className="w-4 h-4 animate-spin" />
-                            Submitting
-                          </>
-                        ) : (
-                          <>
-                            Submit Your Interest
-                            <ArrowRight className="w-4 h-4" />
-                          </>
-                        )}
-                      </button>
-                      <p className="text-xs text-muted-foreground text-center">
-                        You will receive one confirmation email. No newsletter signup.
-                      </p>
-                    </form>
-                  </>
-                )}
+                <h2 id="interest-title" className="font-serif text-3xl md:text-4xl mb-4 pr-8">
+                  Submit your interest.
+                </h2>
+                <iframe
+                  src={waitlistFormUrl}
+                  title="Decoding the sbOS waitlist form"
+                  className="w-full h-[min(65dvh,680px)] border-0 bg-white"
+                />
+                <p className="text-xs text-muted-foreground text-center mt-4">
+                  Having trouble viewing the form?{" "}
+                  <a href={waitlistFormUrl} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                    Open it in a new tab
+                  </a>
+                </p>
               </div>
             </motion.div>
           </>

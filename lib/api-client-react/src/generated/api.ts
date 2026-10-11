@@ -6,27 +6,21 @@
  * OpenAPI spec version: 0.1.0
  */
 import {
-  useMutation,
   useQuery
 } from '@tanstack/react-query';
 import type {
-  MutationFunction,
   QueryFunction,
   QueryKey,
-  UseMutationOptions,
-  UseMutationResult,
   UseQueryOptions,
   UseQueryResult
 } from '@tanstack/react-query';
 
 import type {
-  HealthStatus,
-  InterestConfirmation,
-  InterestInput
+  HealthStatus
 } from './api.schemas';
 
 import { customFetch } from '../custom-fetch';
-import type { ErrorType , BodyType } from '../custom-fetch';
+import type { ErrorType } from '../custom-fetch';
 
 type AwaitedInput<T> = PromiseLike<T> | T;
 
@@ -129,76 +123,4 @@ export function useHealthCheck<TData = Awaited<ReturnType<typeof healthCheck>>, 
 
 
 
-
-export const getSubmitInterestUrl = () => {
-
-
-
-
-  return `/api/interests`
-}
-
-/**
- * Notifies the facilitator and sends a confirmation email to the submitter.
- * @summary Submit interest in the next cohort
- */
-export const submitInterest = async (interestInput: InterestInput, options?: RequestInit): Promise<InterestConfirmation> => {
-
-  return customFetch<InterestConfirmation>(getSubmitInterestUrl(),
-  {
-    ...options,
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(interestInput)
-  }
-);}
-
-
-
-
-
-export const getSubmitInterestMutationOptions = <TError = ErrorType<void>,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof submitInterest>>, TError,{data: BodyType<InterestInput>}, TContext>, request?: SecondParameter<typeof customFetch>}
-): UseMutationOptions<Awaited<ReturnType<typeof submitInterest>>, TError,{data: BodyType<InterestInput>}, TContext> => {
-
-const mutationKey = ['submitInterest'];
-const {mutation: mutationOptions, request: requestOptions} = options ?
-      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
-      options
-      : {...options, mutation: {...options.mutation, mutationKey}}
-      : {mutation: { mutationKey, }, request: undefined};
-
-
-
-
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof submitInterest>>, {data: BodyType<InterestInput>}> = (props) => {
-          const {data} = props ?? {};
-
-          return  submitInterest(data,requestOptions)
-        }
-
-
-
-
-
-
-  return  { mutationFn, ...mutationOptions }}
-
-    export type SubmitInterestMutationResult = NonNullable<Awaited<ReturnType<typeof submitInterest>>>
-    export type SubmitInterestMutationBody = BodyType<InterestInput>
-    export type SubmitInterestMutationError = ErrorType<void>
-
-    /**
- * @summary Submit interest in the next cohort
- */
-export const useSubmitInterest = <TError = ErrorType<void>,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof submitInterest>>, TError,{data: BodyType<InterestInput>}, TContext>, request?: SecondParameter<typeof customFetch>}
- ): UseMutationResult<
-        Awaited<ReturnType<typeof submitInterest>>,
-        TError,
-        {data: BodyType<InterestInput>},
-        TContext
-      > => {
-      return useMutation(getSubmitInterestMutationOptions(options));
-    }
 

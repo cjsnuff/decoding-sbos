@@ -17,32 +17,3 @@ export const HealthCheckResponse = zod.object({
 })
 
 
-/**
- * Notifies the facilitator and sends a confirmation email to the submitter.
- * @summary Submit interest in the next cohort
- */
-export const submitInterestBodyNameMax = 120;
-
-export const submitInterestBodyEmailMax = 254;
-
-
-export const submitInterestBodyEmailRegExp = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
-export const submitInterestBodyMessageMax = 2000;
-
-export const submitInterestBodyWebsiteMax = 200;
-
-
-
-export const SubmitInterestBody = zod.object({
-  "name": zod.string().min(1).max(submitInterestBodyNameMax),
-  "email": zod.string().max(submitInterestBodyEmailMax).regex(submitInterestBodyEmailRegExp),
-  "message": zod.string().max(submitInterestBodyMessageMax).optional(),
-  "website": zod.string().max(submitInterestBodyWebsiteMax).optional().describe('Honeypot field; must remain empty.')
-})
-
-export const SubmitInterestResponse = zod.object({
-  "success": zod.boolean(),
-  "message": zod.string()
-})
-
-

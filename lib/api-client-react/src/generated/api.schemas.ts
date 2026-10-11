@@ -9,28 +9,3 @@ export interface HealthStatus {
   status: string;
 }
 
-export interface InterestInput {
-  /**
-     * @minLength 1
-     * @maxLength 120
-     */
-  name: string;
-  /**
-     * @maxLength 254
-     * @pattern ^[^\s@]+@[^\s@]+\.[^\s@]+$
-     */
-  email: string;
-  /** @maxLength 2000 */
-  message?: string;
-  /**
-     * Honeypot field; must remain empty.
-     * @maxLength 200
-     */
-  website?: string;
-}
-
-export interface InterestConfirmation {
-  success: boolean;
-  message: string;
-}
-

@@ -1,1 +1,1 @@
-- [Netlify email delivery](netlify-email-delivery.md) — live interest emails need Netlify’s own Resend secret; Replit’s connector only serves Replit-hosted API traffic.
+- [Waitlist provider](waitlist-provider.md) — user replaced custom Resend interest submissions with their hosted Frank waitlist form.

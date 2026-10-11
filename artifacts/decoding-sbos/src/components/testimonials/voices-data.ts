@@ -66,4 +66,11 @@ export const voices: Voice[] = [
     quote:
       "I am able to observe my shame based beliefs and how they operate within my body and my mind. I have a more compassionate, understanding relationship with myself.",
   },
+  {
+    id: "brett-c",
+    name: "Brett C.",
+    theme: "The courage to be honest",
+    quote:
+      "Christian is someone who deeply understands the nervous system and shame work. I went from shaming myself for not engaging with the homework (aka experiments and invitations) over the six weeks to eventually doing the most vulnerable and courageous act of my entire life (so far) and unearthing all, ALL of my shames to my partner and my therapist. I'm blown away by the shift inside of me and although absolutely terrified for the future and what's next, I can start to let new things grow where my old shameful parts were, now that they have been put to rest by coming into the light.",
+  },
 ];

@@ -215,7 +215,7 @@ export default function Home() {
       {/* TESTIMONIAL 1 — right after hero, short & punchy for immediate credibility */}
       <PullTestimonial
         quote="Christian is one of the most skilled somatic practitioners I've ever worked with. His group container on shame changed my life."
-        author="Ellen H. — Cohort 1"
+        author="Ellen H."
         variant="amber"
       />
 
@@ -241,7 +241,7 @@ export default function Home() {
       {/* TESTIMONIAL 2 — transformation, mirrors philosophy */}
       <PullTestimonial
         quote="The group really helped me transform some long held fear and shame and gave me more access to life. I left the group feeling more confident, capable and alive."
-        author="Cohort 1 Participant"
+        author="Participant"
         variant="minimal"
       />
 
@@ -281,7 +281,7 @@ export default function Home() {
       {/* TESTIMONIAL 3 — mirrors pain points, curiosity replacing shame */}
       <PullTestimonial
         quote="Christian, thank you for helping me better understand how my body communicates. My response to feeling shame and fear is now curiosity. Life is much better being able to sit with those feelings and explore them, instead of always trying to escape them."
-        author="Todd B. — Cohort 1"
+        author="Todd B."
         variant="default"
       />
 
@@ -341,7 +341,7 @@ export default function Home() {
       {/* TESTIMONIAL 4 — validates the outcomes, "whole new way" */}
       <PullTestimonial
         quote="I see myself and my trauma response in a whole new way. It is no longer something I feel will always be with me, for reasons I don't understand. Instead, I feel so empowered to notice it and engage with it in a positive way, using my agency to confront my deep-seated fears."
-        author="Cohort 1 Participant"
+        author="Participant"
         variant="minimal"
       />
 
@@ -384,14 +384,14 @@ export default function Home() {
       {/* TESTIMONIAL 5 — validates the container and the group setting */}
       <PullTestimonial
         quote="The group setting was powerful to see how patterns of shame affects different people. It was helpful to have such a supportive setting to be able to share and be vulnerable. I have more compassion for myself and feel less anxious and more at peace because of this course."
-        author="Dillon Seely — Cohort 1"
+        author="Dillon Seely"
         variant="default"
       />
 
       {/* TESTIMONIAL — Heather Seely, body awareness, bridges into curriculum */}
       <PullTestimonial
         quote="Christian is an excellent teacher and held a safe and supportive group space. You can begin to recognize how it feels physically, in your body, to experience shame — and see the influence it has on your thoughts, your choices, and the relationship you have with yourself and others. Learning about your shame is the doorway to creating new thought patterns, facing your fears and allowing for greater expansion in your life."
-        author="Heather Seely — Cohort 1"
+        author="Heather Seely"
         variant="minimal"
       />
 
@@ -455,20 +455,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PARTICIPANT VOICES — seven newer reviewers */}
+      {/* PARTICIPANT VOICES */}
       <VoicesSection />
 
       {/* TESTIMONIAL 6 — comprehensive, after curriculum shows full picture */}
       <PullTestimonial
         quote="Since completing this group process, I have experienced significant shifts in my understanding of how shame lives in me and I consistently see glimmers of progress, hope and love."
-        author="K. Whitney — Cohort 1"
+        author="K. Whitney"
         variant="amber"
       />
 
       {/* TESTIMONIAL — Rob M., clinician perspective, after curriculum */}
       <PullTestimonial
         quote="The concept of the Shame-Based Operating System has already become part of both my clinical work and my own personal reflection. Christian teaches from lived experience, and that changes the feel of the room. The authenticity is obvious. Nothing felt performative or overly polished. It felt real, and that made the material easier to trust and integrate. This course is an excellent fit for anyone wanting to better understand shame in themselves or others — not because it promises easy answers, but because it creates the conditions for real change."
-        author="Rob M. — Cohort 1"
+        author="Rob M."
         variant="default"
       />
 
@@ -544,7 +544,7 @@ export default function Home() {
       {/* TESTIMONIAL — Lye Yuan Jun, capacity + naming feelings, after About */}
       <PullTestimonial
         quote="The course has helped me develop a greater capacity to stay in the moment when difficult emotions arise. I am more confident in precisely naming my feeling, identifying its roots in shame and fear, and choosing my response. I feel equipped with the clarity, personal power and specific actionable ideas to move away from patterned behaviours and mindsets, and to deepen my relationship with myself and others."
-        author="Lye Yuan Jun — Cohort 1"
+        author="Lye Yuan Jun"
         variant="minimal"
       />
 
@@ -648,7 +648,7 @@ export default function Home() {
       <section className="py-32 px-6 md:px-12 bg-background">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-16">More from Cohort 1</div>
+            <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-16">More participant voices</div>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -657,7 +657,7 @@ export default function Home() {
                 <p className="text-muted-foreground leading-relaxed italic mb-8 flex-1">
                   "The Honest Body literally changed my perspective on life after operating under a shame-based operating system for more than five decades. Being diagnosed with CPTSD eleven years ago, at age 50, I have been doing everything in my power to heal. In this course, I learned many important things, including how what happens inside of me limits my ability to give and receive love. Shame is a prime example and I'm learning to identify when I feel shame daily. I also learned that the more shame loosens up in me the more love I can feel and take in. My relationships with my husband, my adult children, in particular, and close friends, are rapidly changing. Christian is an absolute gem and holds a safe and loving container where we all felt held as we shared. We can actually learn to heal our deepest wounds — and I am, without a doubt, a living example."
                 </p>
-                <p className="font-mono text-sm tracking-widest uppercase text-primary">— Tracey C.K., Cohort 1</p>
+                <p className="font-mono text-sm tracking-widest uppercase text-primary">— Tracey C.K.</p>
               </div>
             </FadeIn>
 
@@ -666,7 +666,7 @@ export default function Home() {
                 <p className="text-muted-foreground leading-relaxed italic mb-8 flex-1">
                   "His approach to the idea that feeling is freedom felt fresh and new, and, frankly, revolutionary. Within minutes of the first meeting, Christian put all my fears to rest with his remarkable ability to show up with his heart wide open and create a safe, upbeat space for all of us. As I have applied what I learned during my 6 weeks with Christian, I have seen miraculous changes in how I show up in my relationships, feeling freed from trauma responses I had carried in my body for nearly 50 years. Christian's 6-week program has been a game changer for me in tremendous ways, and I would recommend it to anyone who wants to understand shame and trauma and learn how to transform them in powerful, practical ways. You will feel liberated!"
                 </p>
-                <p className="font-mono text-sm tracking-widest uppercase text-primary">— Amberli Peterson, Cohort 1</p>
+                <p className="font-mono text-sm tracking-widest uppercase text-primary">— Amberli Peterson</p>
               </div>
             </FadeIn>
           </div>
@@ -676,7 +676,7 @@ export default function Home() {
       {/* TESTIMONIAL — Olivia Saville, final punch before CTA */}
       <PullTestimonial
         quote="Decoding the sbOS challenged me in ways I didn't anticipate and led to a profound shift in my life. I now have an increased emotional and somatic awareness of when shame and child consciousness are running the show. I feel lighter and braver on the other side of it. Taking this course is money well spent — if you commit to getting something out of it, the results are priceless."
-        author="Olivia Saville — Cohort 1"
+        author="Olivia Saville"
         variant="amber"
       />
 

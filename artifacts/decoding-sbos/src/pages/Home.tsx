@@ -156,7 +156,7 @@ export default function Home() {
               <span>Live</span>
             </div>
             <div className="hidden sm:block w-12 h-px bg-border"></div>
-            <span className="text-primary">January 2027 · Dates TBD</span>
+            <span className="text-primary">Begins Tuesday January 19 @ 6 pm MST</span>
           </FadeIn>
 
           <FadeIn delay={0.5}>
@@ -549,12 +549,41 @@ export default function Home() {
       />
 
       {/* SCHEDULE */}
-      <section className="py-32 px-6 md:px-12 bg-background border-y border-border">
+      <section id="schedule" className="py-32 px-6 md:px-12 bg-background border-y border-border">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">Schedule</div>
-            <h2 className="font-serif text-5xl md:text-6xl mb-8">January 2027.</h2>
-            <p className="font-mono text-sm tracking-widest uppercase text-primary">Dates TBD</p>
+            <h2 className="font-serif text-5xl md:text-6xl mb-12">January–February 2027.</h2>
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="font-mono text-sm tracking-widest uppercase text-primary mb-4">Tuesday sessions</h3>
+                <p className="text-muted-foreground mb-6">6–8 pm MST · Live online</p>
+                <ul className="space-y-4">
+                  {[
+                    "Tuesday January 19 @ 6 pm MST",
+                    "Tuesday January 26 @ 6 pm MST",
+                    "Tuesday February 2 @ 6 pm MST",
+                    "Tuesday February 9 @ 6 pm MST",
+                    "Tuesday February 16 @ 6 pm MST",
+                    "Tuesday February 23 @ 6 pm MST",
+                  ].map((date) => (
+                    <li key={date}>{date}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-mono text-sm tracking-widest uppercase text-primary mb-4">2 bonus calls</h3>
+                <p className="text-muted-foreground mb-6">11 am–1 pm MST · Live online</p>
+                <ul className="space-y-4">
+                  {[
+                    "Friday February 5 @ 11 am MST",
+                    "Friday February 19 @ 11 am MST",
+                  ].map((date) => (
+                    <li key={date}>{date}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -580,7 +609,7 @@ export default function Home() {
                     "Extended dialogue and process work",
                     "Emphasis on embodied experience",
                     "Sessions will be recorded",
-                    "January 2027 — exact dates and times TBD"
+                    "January 19–February 23, 2027 — full schedule above"
                   ].map((item, i) => (
                     <li key={i} className="flex gap-4 items-center">
                       <div className="w-1 h-1 bg-border shrink-0"></div>

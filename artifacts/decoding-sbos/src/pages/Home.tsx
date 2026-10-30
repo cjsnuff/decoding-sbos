@@ -4,6 +4,7 @@ import { ArrowRight, ArrowDown, X, Copy, Check } from "lucide-react";
 import somatic1 from "@assets/generated_images/somatic-1.jpg";
 import somatic2 from "@assets/generated_images/somatic-2.jpg";
 import somatic3 from "@assets/generated_images/somatic-3.jpg";
+import FluencyBanner from "@/components/FluencyBanner";
 import VoicesSection from "@/components/testimonials/VoicesSection";
 import christianHeadshot from "@assets/XianHeadshot2_1784149736543.JPG";
 
@@ -179,6 +180,9 @@ export default function Home() {
           <ArrowDown className="w-6 h-6 text-muted-foreground animate-bounce" />
         </motion.div>
       </section>
+
+      {/* FLUENCY — complementary offer */}
+      <FluencyBanner />
 
       {/* WEBINAR VIDEO EMBED */}
       <section className="px-6 md:px-12 py-20 bg-card/30">

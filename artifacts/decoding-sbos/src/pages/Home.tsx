@@ -188,6 +188,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
         </div>
 
+        {/* Artwork by Hanna Barczyk — low-contrast atmospheric layer with dark wash + faded edges */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full md:w-[58%] lg:w-[48%]">
+          <img
+            src={`${import.meta.env.BASE_URL}artwork/hanna-barczyk-archer.webp`}
+            alt=""
+            width={736}
+            height={1041}
+            decoding="async"
+            className="w-full h-full object-cover object-top opacity-[0.16] md:opacity-[0.3] saturate-[0.85]"
+            style={{
+              maskImage: "linear-gradient(to right, transparent 0%, #000 28%, #000 88%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 28%, #000 88%, transparent 100%)",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/10"></div>
+        </div>
+        <p className="absolute z-10 top-28 right-6 md:top-auto md:bottom-8 md:right-24 font-mono text-[10px] md:text-xs tracking-widest uppercase text-muted-foreground/80">
+          Artwork by Hanna Barczyk
+        </p>
+
         <div className="relative z-10 max-w-5xl">
           <FadeIn>
             <div className="font-mono text-xs tracking-widest uppercase text-primary mb-8 border-l border-primary pl-4 py-1">

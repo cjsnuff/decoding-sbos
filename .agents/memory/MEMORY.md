@@ -2,3 +2,4 @@
 - [Testimonial editing](testimonial-editing.md) — user permits shortening long reviews and wants varied course dimensions with small real-person portraits.
 - [Complementary promotions](complementary-promotions.md) — Fluency must remain optional and secondary to the main sbOS offer, with readable credit conditions.
 - [Publishing approval](publishing-approval.md) — keep changes in preview; do not push to GitHub or trigger Netlify without explicit user approval.
+- [Background artwork](background-artwork.md) — use low-contrast imagery like the Fluency sister site, keeping text readable and artist credits visible.

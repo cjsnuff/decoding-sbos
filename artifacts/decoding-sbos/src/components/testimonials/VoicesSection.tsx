@@ -71,7 +71,7 @@ export default function VoicesSection() {
           <div className="md:col-span-5">
             <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">Participant Voices</div>
             <h2 id="voices-heading" className="font-serif text-5xl md:text-7xl leading-[0.95]">
-              Eight people.<br /><span className="text-primary">Eight doorways.</span>
+              What people<br /><span className="text-primary">are saying.</span>
             </h2>
           </div>
           <p className="md:col-span-6 md:col-start-7 self-end text-lg md:text-xl text-muted-foreground font-light leading-relaxed">

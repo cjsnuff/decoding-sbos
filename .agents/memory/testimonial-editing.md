@@ -14,3 +14,9 @@ Attribute testimonials by name only, without “Cohort 1” or “Cohort 2” la
 **Why:** The user explicitly requested removing cohort labels from all testimonials.
 
 **How to apply:** Keep names without cohort suffixes. Where a review has no supplied name, preserve anonymity rather than inventing one.
+
+Keep testimonial section headings plain and direct.
+
+**Why:** The user said the “Eight people” heading felt “very AI” and requested “what people are saying.”
+
+**How to apply:** Avoid replacing the testimonial heading with rhetorical or metaphorical wording during future design edits.

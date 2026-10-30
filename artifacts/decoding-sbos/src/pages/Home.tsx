@@ -112,11 +112,22 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+    <div className="relative min-h-screen pt-14 bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       <div className="noise-overlay"></div>
 
+      <a
+        href="#fluency"
+        className="fixed top-0 inset-x-0 z-40 h-14 flex items-center justify-center gap-3 sm:gap-6 px-4 bg-primary text-primary-foreground text-xs sm:text-sm leading-snug focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary-foreground"
+      >
+        <span className="sm:hidden">Optional: Fluency · Starts Dec 1</span>
+        <span className="hidden sm:inline">Begin with Fluency · December 1–22 · An optional, complementary experience</span>
+        <span className="inline-flex items-center gap-1 underline underline-offset-4 shrink-0">
+          View details <ArrowDown className="w-3 h-3" aria-hidden="true" />
+        </span>
+      </a>
+
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-40 p-6 flex justify-between items-center mix-blend-difference text-foreground/80">
+      <nav className="fixed top-14 left-0 right-0 z-40 p-6 flex justify-between items-center mix-blend-difference text-foreground/80">
         <div className="font-mono text-xs tracking-widest uppercase">The sbOS</div>
         <button onClick={openInterestForm} className="font-mono text-xs tracking-widest uppercase hover:text-primary transition-colors cursor-pointer">
           Submit Your Interest

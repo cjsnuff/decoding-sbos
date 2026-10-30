@@ -4,8 +4,10 @@ import { ArrowRight } from "lucide-react";
 export default function FluencyBanner() {
   return (
     <section
+      id="fluency"
+      tabIndex={-1}
       aria-labelledby="fluency-banner-heading"
-      className="px-6 md:px-12 py-16 md:py-20"
+      className="scroll-mt-36 px-6 md:px-12 py-16 md:py-20"
       data-testid="section-fluency-banner"
     >
       <motion.div

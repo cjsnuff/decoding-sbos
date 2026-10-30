@@ -141,17 +141,17 @@ export default function Home() {
             className="h-11 md:h-14 inline-flex items-center gap-3 font-mono text-xs tracking-widest uppercase text-foreground hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <span className="w-2 h-2 rounded-full bg-primary" aria-hidden="true"></span>
-            <span>Decoding <span className="text-primary">the sbOS</span></span>
+            <span><span className="hidden sm:inline">Decoding </span><span className="text-primary">the sbOS</span></span>
           </a>
           <button
             type="button"
             onClick={openInterestForm}
             data-testid="button-nav-register-mobile"
-            className="md:hidden h-8 px-3 bg-primary text-primary-foreground font-mono text-[11px] tracking-widest uppercase hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+            className="md:hidden h-8 px-3 bg-primary text-primary-foreground font-mono text-[11px] tracking-wide whitespace-nowrap uppercase hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
           >
-            Register
+            Submit Your Interest
           </button>
-          <ul className="w-full md:w-auto flex items-center justify-between md:justify-end gap-1 md:gap-8 border-t border-border/60 md:border-0 h-10 md:h-14">
+          <ul className="w-full md:w-auto flex items-center justify-between md:justify-end gap-1 md:gap-4 lg:gap-8 border-t border-border/60 md:border-0 h-10 md:h-14">
             {[
               { href: "#curriculum", label: "Curriculum" },
               { href: "#schedule", label: "Dates" },
@@ -174,7 +174,7 @@ export default function Home() {
                 data-testid="button-nav-register"
                 className="inline-flex items-center gap-2 h-9 px-5 bg-primary text-primary-foreground font-mono text-xs tracking-widest uppercase hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               >
-                Register <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                Submit Your Interest <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
               </button>
             </li>
           </ul>

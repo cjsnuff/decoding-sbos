@@ -3,3 +3,4 @@
 - [Complementary promotions](complementary-promotions.md) — Fluency must remain optional and secondary to the main sbOS offer, with readable credit conditions.
 - [Publishing approval](publishing-approval.md) — keep changes in preview; do not push to GitHub or trigger Netlify without explicit user approval.
 - [Background artwork](background-artwork.md) — use low-contrast imagery like the Fluency sister site, keeping text readable and artist credits visible.
+- [Navigation order](navigation-order.md) — section links must follow the sections' top-to-bottom page order.

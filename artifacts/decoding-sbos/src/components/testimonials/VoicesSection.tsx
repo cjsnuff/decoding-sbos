@@ -59,7 +59,7 @@ function VoiceCard({ voice, index }: { voice: Voice; index: number }) {
 
 export default function VoicesSection() {
   return (
-    <section id="reviews" className="scroll-mt-40 md:scroll-mt-28 py-32 px-6 md:px-12 bg-card/30 border-y border-border" aria-labelledby="voices-heading">
+    <section id="reviews" className="scroll-mt-40 lg:scroll-mt-28 py-32 px-6 md:px-12 bg-card/30 border-y border-border" aria-labelledby="voices-heading">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

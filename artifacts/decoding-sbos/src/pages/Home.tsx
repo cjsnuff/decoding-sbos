@@ -132,13 +132,13 @@ export default function Home() {
         data-testid="nav-primary"
         className="fixed top-14 inset-x-0 z-40 bg-background/90 backdrop-blur-md border-b border-border"
       >
-        <div className="max-w-6xl mx-auto px-4 md:px-12 flex flex-wrap md:flex-nowrap items-center justify-between gap-x-6">
+        <div className="max-w-6xl mx-auto px-4 lg:px-12 flex flex-wrap lg:flex-nowrap items-center justify-between gap-x-6">
           <a
             href="#top"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); document.getElementById("top")?.focus({ preventScroll: true }); }}
             data-testid="link-nav-top"
             aria-label="Decoding the sbOS, back to top"
-            className="h-11 md:h-14 inline-flex items-center gap-3 font-mono text-xs tracking-widest uppercase text-foreground hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="h-11 lg:h-14 inline-flex items-center gap-3 font-mono text-xs tracking-widest uppercase text-foreground hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <span className="w-2 h-2 rounded-full bg-primary" aria-hidden="true"></span>
             <span><span className="hidden sm:inline">Decoding </span><span className="text-primary">the sbOS</span></span>
@@ -147,27 +147,28 @@ export default function Home() {
             type="button"
             onClick={openInterestForm}
             data-testid="button-nav-register-mobile"
-            className="md:hidden h-8 px-3 bg-primary text-primary-foreground font-mono text-[11px] tracking-wide whitespace-nowrap uppercase hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+            className="lg:hidden h-8 px-3 bg-primary text-primary-foreground font-mono text-[11px] tracking-wide whitespace-nowrap uppercase hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
           >
             Submit Your Interest
           </button>
-          <ul className="w-full md:w-auto flex items-center justify-between md:justify-end gap-1 md:gap-4 lg:gap-8 border-t border-border/60 md:border-0 h-10 md:h-14">
+          <ul className="w-full lg:w-auto flex items-center justify-between lg:justify-end gap-1 lg:gap-6 xl:gap-8 border-t border-border/60 lg:border-0 h-10 lg:h-14">
             {[
+              { href: "#who-this-is-for", label: "Who is this for" },
               { href: "#curriculum", label: "Curriculum" },
-              { href: "#schedule", label: "Dates" },
               { href: "#reviews", label: "Reviews" },
+              { href: "#schedule", label: "Dates" },
             ].map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   data-testid={`link-nav-${l.href.slice(1)}`}
-                  className="relative inline-flex items-center h-9 px-2 md:px-0 font-mono text-[11px] md:text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors after:absolute after:left-2 after:right-2 md:after:left-0 md:after:right-0 after:bottom-1 after:h-px after:bg-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary focus-visible:text-foreground"
+                  className="relative inline-flex items-center h-9 px-1 sm:px-2 lg:px-0 font-mono text-[10px] sm:text-[11px] lg:text-xs tracking-wide sm:tracking-widest whitespace-nowrap uppercase text-muted-foreground hover:text-foreground transition-colors after:absolute after:left-1 after:right-1 lg:after:left-0 lg:after:right-0 after:bottom-1 after:h-px after:bg-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary focus-visible:text-foreground"
                 >
                   {l.label}
                 </a>
               </li>
             ))}
-            <li className="hidden md:block">
+            <li className="hidden lg:block">
               <button
                 type="button"
                 onClick={openInterestForm}
@@ -428,7 +429,7 @@ export default function Home() {
       />
 
       {/* WHO THIS IS FOR */}
-      <section id="who-this-is-for" className="scroll-mt-40 md:scroll-mt-28 relative overflow-hidden py-32 px-6 md:px-12 bg-card/30 border-y border-border">
+      <section id="who-this-is-for" className="scroll-mt-40 lg:scroll-mt-28 relative overflow-hidden py-32 px-6 md:px-12 bg-card/30 border-y border-border">
         {/* Artwork by Viktoria Maliarians — hands framing a face; seen vs hiding. inverted + screen so the white ground drops out on the dark page. */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full md:w-[52%] lg:w-[42%]">
           <img
@@ -498,7 +499,7 @@ export default function Home() {
       />
 
       {/* THE ARC OF SIX WEEKS */}
-      <section id="curriculum" aria-labelledby="curriculum-heading" className="scroll-mt-40 md:scroll-mt-28 py-32 px-6 md:px-12">
+      <section id="curriculum" aria-labelledby="curriculum-heading" className="scroll-mt-40 lg:scroll-mt-28 py-32 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">Curriculum</div>
@@ -651,7 +652,7 @@ export default function Home() {
       />
 
       {/* SCHEDULE */}
-      <section id="schedule" className="scroll-mt-40 md:scroll-mt-28 py-32 px-6 md:px-12 bg-background border-y border-border">
+      <section id="schedule" className="scroll-mt-40 lg:scroll-mt-28 py-32 px-6 md:px-12 bg-background border-y border-border">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">Schedule</div>

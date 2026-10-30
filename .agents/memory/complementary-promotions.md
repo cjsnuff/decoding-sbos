@@ -8,3 +8,9 @@ Fluency is an optional, complementary experience, not a prerequisite for Decodin
 **Why:** The user explicitly set these boundaries when requesting the Fluency promotion.
 
 **How to apply:** Preserve this product hierarchy when revising either offer or adding future promotions. Keep participation requirements next to the credit claim.
+
+The user describes ansfluency.com as a sister site to Decoding the sbOS.
+
+**Why:** The user supplied this relationship as context for ongoing site design.
+
+**How to apply:** Treat the sites as related offerings, while preserving each site's identity and the optional nature of Fluency.

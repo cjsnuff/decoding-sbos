@@ -7,7 +7,7 @@ export default function FluencyBanner() {
       id="fluency"
       tabIndex={-1}
       aria-labelledby="fluency-banner-heading"
-      className="scroll-mt-36 px-6 md:px-12 py-16 md:py-20"
+      className="scroll-mt-40 md:scroll-mt-28 px-6 md:px-12 py-16 md:py-20"
       data-testid="section-fluency-banner"
     >
       <motion.div

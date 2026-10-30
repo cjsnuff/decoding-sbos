@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decoding the sbOS — Interest List</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: #f9fafb; }
+      body { font-family: Arial, Helvetica, sans-serif; color: #4d4d4d; }
+      .formkit-form { width: 100%; max-width: 700px; margin: 0 auto; border: 1px solid #e3e3e3; border-radius: 4px; -webkit-font-smoothing: antialiased; }
+      [data-style="minimal"] { padding: 20px; }
+      .formkit-header { font-size: 27px; font-weight: 700; text-align: center; margin: 0 0 27px; }
+      .formkit-header h2 { font-size: inherit; font-weight: inherit; line-height: 1.3; margin: 0; }
+      .formkit-subheader { color: #686868; font-size: 18px; text-align: center; line-height: 1.5; margin: 18px 0; }
+      .formkit-subheader p { margin: 0; }
+      .formkit-fields { display: flex; flex-wrap: wrap; gap: 12px; margin: 25px 0 15px; }
+      .formkit-field, .formkit-submit { flex: 1 1 100%; min-width: 0; }
+      .formkit-input { width: 100%; background: white; color: black; font-size: 16px; padding: 12px; border: 1px solid #e3e3e3; border-radius: 4px; line-height: 1.4; }
+      .formkit-input:focus-visible, .formkit-submit:focus-visible, a:focus-visible { outline: 2px solid #1677be; outline-offset: 3px; }
+      .formkit-submit { position: relative; border: 0; border-radius: 4px; background: #1677be; color: white; font: 700 15px Arial, sans-serif; padding: 0; cursor: pointer; overflow: hidden; }
+      .formkit-submit > span { display: block; padding: 14px 24px; }
+      .formkit-submit:hover { background: #12649f; }
+      .formkit-submit:disabled { cursor: wait; opacity: .7; }
+      .formkit-alert { list-style: none; padding: 12px; border: 1px solid; border-radius: 5px; line-height: 1.5; text-align: center; }
+      .formkit-alert:empty { display: none; }
+      .formkit-alert-error { background: #fde8e2; border-color: #f2643b; color: #a1240a; }
+      .formkit-alert-success { background: #d3fbeb; border-color: #10bf7a; color: #0c6b40; }
+      .formkit-spinner { display: none; }
+      .formkit-submit[data-active] .formkit-spinner { display: block; position: absolute; inset: 0; padding: 14px; }
+      .formkit-submit[data-active] .formkit-spinner::after { content: "Submitting…"; }
+      .formkit-submit[data-active] > span { visibility: hidden; }
+      .formkit-guarantee { font-size: 13px; line-height: 1.5; margin: 10px 0 15px; text-align: center; }
+      .formkit-powered-by-convertkit-container { text-align: center; margin: 10px 0 0; }
+      .formkit-powered-by-convertkit { display: inline-block; padding: 8px; color: #3d3d3d; font-size: 13px; }
+      @media (min-width: 600px) {
+        [data-style="minimal"] { padding: 40px; }
+        .formkit-field { flex: 1 1 220px; }
+        .formkit-submit { flex: 0 1 auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The site owns the popup. Render Kit inline here, without a timer,
+         repeat-visit suppression, or a second popup inside the existing one. -->
+    <form
+      action="https://app.kit.com/forms/10122208/subscriptions"
+      class="seva-form formkit-form"
+      method="post"
+      data-sv-form="10122208"
+      data-uid="3bcbd7f70a"
+      data-format="inline"
+      data-version="5"
+      data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""}},"version":"5"}'
+    >
+      <div data-style="minimal">
+        <div class="formkit-header" data-element="header">
+          <h2>Thanks for your interest in the next Decoding the sbOS offering (January 2027).</h2>
+        </div>
+        <div class="formkit-subheader" data-element="subheader">
+          <p>You will receive an email with updates on the upcoming offering.</p>
+        </div>
+        <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert" role="alert" aria-live="polite"></ul>
+        <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+          <div class="formkit-field">
+            <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" autocomplete="email" required type="email" />
+          </div>
+          <button type="submit" data-element="submit" class="formkit-submit">
+            <div class="formkit-spinner" aria-hidden="true"><div></div><div></div><div></div></div>
+            <span>Subscribe</span>
+          </button>
+        </div>
+        <div class="formkit-guarantee" data-element="guarantee">We won't send you spam. Unsubscribe at any time.</div>
+        <div class="formkit-powered-by-convertkit-container">
+          <a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener noreferrer">Built with Kit</a>
+        </div>
+      </div>
+    </form>
+    <script>
+      // Escape should close the site's popup even while the email field has focus.
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && window.parent !== window) {
+          window.parent.document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+        }
+      });
+      function kitLoadFailed() {
+        document.querySelector('[data-element="errors"]').textContent =
+          "The signup service could not load. Please reload this form or try again later.";
+        document.querySelector('[type="submit"]').disabled = true;
+      }
+    </script>
+    <script src="https://f.convertkit.com/ckjs/ck.5.js" onerror="kitLoadFailed()"></script>
+  </body>
+</html>

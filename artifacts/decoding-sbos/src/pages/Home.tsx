@@ -8,7 +8,7 @@ import FluencyBanner from "@/components/FluencyBanner";
 import VoicesSection from "@/components/testimonials/VoicesSection";
 import christianHeadshot from "@assets/XianHeadshot2_1784149736543.JPG";
 
-const waitlistFormUrl = "https://itsjustfrank.com/f/76a5ff3c-443d-4d5f-8f89-2e40eb3f43ae";
+const waitlistFormUrl = `${import.meta.env.BASE_URL}forms/sbos-interest.html`;
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -840,7 +840,7 @@ export default function Home() {
                 </h2>
                 <iframe
                   src={waitlistFormUrl}
-                  title="Decoding the sbOS waitlist form"
+                  title="Decoding the sbOS Kit interest form"
                   className="w-full h-[min(65dvh,680px)] border-0 bg-white"
                 />
                 <p className="text-xs text-muted-foreground text-center mt-4">

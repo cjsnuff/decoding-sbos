@@ -236,7 +236,7 @@ export default function Home() {
               <span>Live</span>
             </div>
             <div className="hidden sm:block w-12 h-px bg-border"></div>
-            <span className="text-primary">Begins Tuesday January 19 @ 6 pm MST</span>
+            <span className="text-primary">Begins Tuesday January 19 @ 6 pm MST · 7 pm CST · 8 pm EST</span>
           </FadeIn>
 
           <FadeIn delay={0.5}>
@@ -660,7 +660,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h3 className="font-mono text-sm tracking-widest uppercase text-primary mb-4">Tuesday sessions</h3>
-                <p className="text-muted-foreground mb-6">6–8 pm MST · Live online</p>
+                <p className="text-muted-foreground mb-6">6–8 pm MST · 7–9 pm CST · 8–10 pm EST · Live online</p>
                 <ul className="space-y-4">
                   {[
                     "Tuesday January 19 @ 6 pm MST",
@@ -670,19 +670,19 @@ export default function Home() {
                     "Tuesday February 16 @ 6 pm MST",
                     "Tuesday February 23 @ 6 pm MST",
                   ].map((date) => (
-                    <li key={date}>{date}</li>
+                    <li key={date}>{date} · 7 pm CST · 8 pm EST</li>
                   ))}
                 </ul>
               </div>
               <div>
                 <h3 className="font-mono text-sm tracking-widest uppercase text-primary mb-4">2 bonus calls</h3>
-                <p className="text-muted-foreground mb-6">11 am–1 pm MST · Live online</p>
+                <p className="text-muted-foreground mb-6">11 am–1 pm MST · 12–2 pm CST · 1–3 pm EST · Live online</p>
                 <ul className="space-y-4">
                   {[
                     "Friday February 5 @ 11 am MST",
                     "Friday February 19 @ 11 am MST",
                   ].map((date) => (
-                    <li key={date}>{date}</li>
+                    <li key={date}>{date} · 12 pm CST · 1 pm EST</li>
                   ))}
                 </ul>
               </div>

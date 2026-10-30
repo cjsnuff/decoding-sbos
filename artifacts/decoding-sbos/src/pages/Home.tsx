@@ -428,8 +428,28 @@ export default function Home() {
       />
 
       {/* WHO THIS IS FOR */}
-      <section className="py-32 px-6 md:px-12 bg-card/30 border-y border-border">
-        <div className="max-w-4xl mx-auto">
+      <section id="who-this-is-for" className="scroll-mt-40 md:scroll-mt-28 relative overflow-hidden py-32 px-6 md:px-12 bg-card/30 border-y border-border">
+        {/* Artwork by Viktoria Maliarians — hands framing a face; seen vs hiding. inverted + screen so the white ground drops out on the dark page. */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full md:w-[52%] lg:w-[42%]">
+          <img
+            src={`${import.meta.env.BASE_URL}artwork/viktoria-maliarians-hands.webp`}
+            alt=""
+            width={480}
+            height={600}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover object-center mix-blend-screen [filter:invert(1)_hue-rotate(180deg)_saturate(0.8)] opacity-[0.16] md:opacity-[0.24]"
+            style={{
+              maskImage: "linear-gradient(to right, transparent 0%, #000 35%, #000 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 15%, #000 85%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 35%, #000 85%, transparent 100%)",
+              maskComposite: "intersect",
+            }}
+          />
+        </div>
+        <p className="absolute z-10 bottom-4 right-6 md:right-12 font-mono text-[10px] md:text-xs tracking-widest uppercase text-muted-foreground/80">
+          Artwork by Viktoria Maliarians
+        </p>
+        <div className="relative z-10 max-w-4xl mx-auto">
           <FadeIn>
             <h2 className="font-serif text-4xl md:text-6xl mb-8">Who this is for</h2>
             <p className="text-xl text-muted-foreground mb-12">
